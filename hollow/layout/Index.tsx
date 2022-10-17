@@ -59,7 +59,6 @@ export default function Index(props: Props) {
     dark:text-white
     min-h-screen language-plain flex flex-col">
     <Header name={props.logo}></Header>
-    <div id="react-root"></div>
     <div className="flex-1">
         {
             props.children
