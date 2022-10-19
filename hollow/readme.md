@@ -2,17 +2,23 @@
 
 Hollow 系统同名主题（也是第一款主题）。https://blog.bysir.top/
 
+- 支持自定义字体
+- 支持搜索
+
+![img_1.png](docs/img_1.png)
+![img.png](docs/img.png)
+![img_2.png](docs/img_2.png)
 ## Params
 
 支持配置以下参数：
 
 ```yaml
 theme_config:
-  base: ''
   title: Bysir 的博客
   logo: "bysir"
   font: 
-    family: "LXGW WenKai" # 支持 LXGW WenKai / noto
+    body:
+      family: "LXGW WenKai" # 支持 LXGW WenKai / noto
   stack: Tailwindcss + <a href="https://github.com/zbysir/hollow">Hollow</a> + <a href="https://github.com/zbysir/gojsx">Jsx</a>
   footer_links:
     - url: https://github.com/zbysir
@@ -20,7 +26,6 @@ theme_config:
       icon: GitHub
   links_page: 'pages/links.md'
   about_page: 'pages/about.md'
-
 ```
 
 ## 代码结构
@@ -28,7 +33,14 @@ theme_config:
 - main.css：生成 tailwindcss
 - app/index.tsx：前端 js 代码编译入口，编译生成 app.js
 
+## 如何使用
+修改项目下的 config.yml 文件:
+
+```yaml
+theme: https://github.com/zbysir/hollow-theme/tree/master/hollow
+```
+
 ## 如何开发
 - yarn
 - yarn build
-- hollow service (注意[配置 hollow 使用当前主题](TODO))
+- hollow server (注意[配置 hollow 使用当前主题](TODO))
