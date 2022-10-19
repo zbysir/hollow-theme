@@ -1,5 +1,5 @@
 import Link from "./Link";
-import {articleRoute, dateFormat} from "../utilx";
+import {articleRoute, dateFormat} from "../util";
 import {Article} from "@bysir/hollow";
 
 export default function BlogBig({blog}: { blog: Article }) {
@@ -16,7 +16,7 @@ export default function BlogBig({blog}: { blog: Article }) {
         bg-opacity-50
         z-10
     ">
-            <div class="leading-relaxed ">
+            <div className="leading-relaxed ">
                 <h1 className="text-xl xl:text-3xl font-bold" style={{lineHeight: '1.2'}}>
                     <Link href={link}>
                         {name}

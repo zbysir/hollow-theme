@@ -1,5 +1,5 @@
 import Link from "./Link";
-import {articleRoute, dateFormat} from "../utilx";
+import {articleRoute, dateFormat} from "../util";
 import {Article} from "@bysir/hollow";
 
 

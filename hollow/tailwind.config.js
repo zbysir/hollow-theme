@@ -25,4 +25,7 @@ module.exports = {
     }),
     require("daisyui")
   ],
+  daisyui:{
+    'themes':['wireframe']
+  }
 }

@@ -6,7 +6,7 @@ import TagPage from "./page/TagPage";
 
 import hollow, {getArticles} from "@bysir/hollow"
 import MarkDown from "./page/Md";
-import {articleRoute} from "./utilx";
+import {articleRoute} from "./util";
 import Gallery from "./page/Gallery";
 let articles = getArticles('./blogs');
 let params = hollow.getConfig();

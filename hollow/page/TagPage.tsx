@@ -2,7 +2,7 @@ import Link from "../component/Link";
 import BlogXS from "../component/BlogXS";
 
 import hollow, {Blog} from "@bysir/hollow"
-import {sortBlog} from "../utilx";
+import {sortBlog} from "../util";
 
 let blogs = hollow.getArticles('./blogs', {
     sort: sortBlog, page: 1, size: 20

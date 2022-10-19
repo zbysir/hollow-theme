@@ -23,21 +23,29 @@ export default function Header(props) {
                 justify-center
                 mx-auto md:flex-row max-w-6xl px-5 py-1">
                 <div className="relative flex flex-col md:flex-row max-w-full">
-                    <Link href="/"
-                          className="flex items-center pt-2 pb-1 md:pb-2 md:my-0 font-medium md:items-center">
-                        <span
-                            className={`mx-auto text-xl ${thin?'font-extralight':'font-black'} leading-none text-gray-900 dark:text-gray-100 select-none`}> {props.name}
-                            <span className="text-indigo-600"> .</span>
-                        </span>
-                    </Link>
+                    <div className="flex items-center justify-center
+                     pt-2 pb-1 md:pb-2 md:my-0
+                    ">
+                        <Link href="/"
+                              className="flex font-medium ">
+                            <span
+                              className={`text-xl ${thin ? 'font-extralight' : 'font-black'} leading-none text-gray-900 dark:text-gray-100 select-none`}>
+                                {props.name}
+                            </span>
+                        </Link>
+                        <div id="react-dom-search" className="ml-3 mt-2">
+                            <Search></Search>
+                        </div>
+                    </div>
+
                     <div className="md:py-3">
                         <div className="md:pl-4 md:ml-4 md:border-l md:border-gray-200 md:dark:border-gray-700 h-full"></div>
                     </div>
                     <nav
-                        className={`flex space-x-2 overflow-x-auto items-center text-lg
+                      className={`flex space-x-2 overflow-x-auto items-center text-lg
                         tracking-wide
                         md:border-gray-200
-                        ${thin?'font-extralight':'font-medium'}`}>
+                        ${thin ? 'font-extralight' : 'font-medium'}`}>
                         {
                             menus.map(i => (
                               <Link href={i.href}
@@ -49,11 +57,11 @@ export default function Header(props) {
                     </nav>
                 </div>
 
-                <div id="react-dom-search"
-                     className={"ml-3"}>
-                    {/* 可以引入 React 代码，实现公用 */}
-                    <Search></Search>
-                </div>
+                {/*<div id="react-dom-search"*/}
+                {/*     className={"ml-3 flex items-center hidden"}>*/}
+                {/*    /!* 可以引入 React 代码，实现公用 *!/*/}
+                {/*    <Search></Search>*/}
+                {/*</div>*/}
             </div>
         </section>
     </div>
