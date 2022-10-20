@@ -2,8 +2,10 @@
 
 Hollow 系统同名主题（也是第一款主题）。https://blog.bysir.top/
 
+- 基于 tailwindcss + [daisyUI](https://github.com/saadeghi/daisyui)
 - 支持自定义字体
 - 支持搜索
+- 支持 暗夜模式
 
 ![img_1.png](docs/img_1.png)
 ![img.png](docs/img.png)
