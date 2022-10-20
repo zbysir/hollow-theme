@@ -43,10 +43,13 @@ export default function Index(props: Props) {
     return <html lang="zh">
     <head>
         <meta charSet="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0"/>
         <title>{props.title || 'UnTitled'}</title>
-        <link href={routerBase + '/main.css'} rel="stylesheet"/>
-        <link href={routerBase + '/prism/prism.css'} rel="stylesheet"/>
+        <link href={routerBase + '/main.css'}
+              rel="stylesheet"/>
+        <link href={routerBase + '/prism/prism.css'}
+              rel="stylesheet"/>
         {
             Object.keys(params.font).map((selector => {
                 return <FontFamilyStyle selector={selector} {...params.font[selector]}></FontFamilyStyle>

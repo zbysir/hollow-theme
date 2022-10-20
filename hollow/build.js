@@ -2,8 +2,6 @@ const esbuild = require("esbuild");
 const autoprefixer = require("autoprefixer");
 const tailwindcss = require('tailwindcss')
 const postCssPlugin = require("@deanc/esbuild-plugin-postcss");
-const path = require("path");
-const {Metafile} = require("esbuild");
 const fs = require("fs-extra");
 
 esbuild
@@ -27,6 +25,7 @@ esbuild
             for (let outputsKey in args.metafile.outputs) {
               if (args.metafile.outputs[outputsKey].entryPoint === "index.tsx") {
                 fs.rm(outputsKey)
+                fs.rm(outputsKey + '.map')
               }
             }
             return null
@@ -35,7 +34,7 @@ esbuild
       },
 
       postCssPlugin({
-          plugins: [autoprefixer, tailwindcss],
+          plugins: [tailwindcss, autoprefixer],
         },
       ),
     ],
@@ -45,6 +44,7 @@ esbuild
     minify: true,
     sourcemap: true,
     treeShaking: true,
+    target: ["chrome78"],
     watch: {
       onRebuild: function (e, result) {
         if (e) {

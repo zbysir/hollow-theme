@@ -4,6 +4,9 @@ import { articleRoute } from "../util";
 
 export function Search() {
   const [fuse, setFuse] = useState<Fuse<any>>()
+  const [searchResult, setSearchResult] = useState<any[]>()
+  const [showSearch, setShowSearch] = useState(false)
+  const inputRef = useRef<HTMLInputElement>()
 
   useEffect(() => {
     fetch('/article.json')
@@ -16,11 +19,8 @@ export function Search() {
       });
   }, [])
 
-  const [searchResult, setSearchResult] = useState<any[]>()
-  const [showSearch, setShowSearch] = useState(false)
-  const inputRef = useRef<HTMLInputElement>()
   return <>
-    <button className="btn btn-ghost btn-xs btn-circle"
+    <button className="btn btn-ghost btn-xs btn-circle w-6 h-6 p-0"
             onClick={() => {
               setShowSearch(true)
               setTimeout(() => {
@@ -40,11 +40,7 @@ export function Search() {
     </button>
 
     <div>
-      <input type="checkbox"
-             checked={showSearch}
-             id="my-modal"
-             className="modal-toggle"/>
-      <div className="modal">
+      <div className={`modal ${showSearch?'modal-open':''} items-center`}>
         <div className="modal-box">
           <h3 className="font-bold text-lg">搜索文章</h3>
           <div className="mt-3">
@@ -74,7 +70,7 @@ export function Search() {
               </ul> : null}
           </div>
           <div className="modal-action mt-3">
-            <label onClick={() => setShowSearch(false)}
+            <label onClick={() => {setShowSearch(false)}}
                    className="btn btn-sm">关闭</label>
           </div>
         </div>

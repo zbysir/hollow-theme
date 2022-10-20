@@ -14,7 +14,6 @@ export default function BlogBig({blog}: { blog: Article }) {
         py-2 px-2 md:py-6 md:px-2
         text-center
         bg-opacity-50
-        z-10
     ">
             <div className="leading-relaxed ">
                 <h1 className="text-xl xl:text-3xl font-bold" style={{lineHeight: '1.2'}}>
