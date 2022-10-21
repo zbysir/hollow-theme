@@ -1,14 +1,17 @@
 import Link from "../component/Link";
 import { Search } from "../app/search";
 
-export default function Header(props) {
+export default function Header(props: { name: string, active: string }) {
     const menus = [
         {href: '/', name: 'Home'},
         {href: '/tags', name: 'Tags'},
         {href: '/about', name: 'About'},
         {href: '/links', name: 'Links'},
-        // {href: '/gallery', name: 'Gallery'},
-    ]
+    ].map(i => ({
+            ...i,
+            active: i.name === props.active
+        }
+    ))
 
     let thin = true
     return <div
@@ -48,10 +51,11 @@ export default function Header(props) {
                         ${thin ? 'font-extralight' : 'font-medium'}`}>
                         {
                             menus.map(i => (
-                              <Link href={i.href}
-                                    className="p-2 transition duration-150
-                                hover:dark:text-gray-200
-                                hover:text-gray-800">{i.name}</Link>
+                                <Link
+                                    href={i.href}
+                                    className={`p-2 transition duration-150
+                                        ${i.active? "hover:dark:text-gray-200 hover:text-gray-800": "text-gray-500 dark:text-gray-700"}
+                                `}>{i.name}</Link>
                             ))
                         }
                     </nav>

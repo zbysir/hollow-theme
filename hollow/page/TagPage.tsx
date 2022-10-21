@@ -1,12 +1,17 @@
 import Link from "../component/Link";
 import BlogXS from "../component/BlogXS";
 
-import hollow, {Blog} from "@bysir/hollow"
+import hollow, {Article} from "@bysir/hollow"
 import {sortBlog} from "../util";
+import {defaultContents} from "../const";
 
-let blogs = hollow.getArticles('./blogs', {
+let contents = hollow.getArticles('contents', {
     sort: sortBlog, page: 1, size: 20
-});
+}).list;
+
+if (contents.length == 0) {
+    contents = defaultContents
+}
 
 interface Props {
     selectedTag?: string
@@ -15,22 +20,21 @@ interface Props {
 // 显示所有博客的页面
 export default function TagPage(props: Props) {
     let tags = []
-    blogs.list.forEach(i => {
+    contents.forEach(i => {
         let items = i.meta?.tags;
         if (items) {
             tags = tags.concat(items)
         }
     })
 
-    // @ts-ignore
     tags = Array.from(new Set(tags))
-    let showBlogs: Blog[]
+    let showBlogs: Article[]
 
     if (props.selectedTag) {
-        showBlogs = blogs.list.filter(i => i.meta?.tags?.find(i => i === props.selectedTag))
+        showBlogs = contents.filter(i => i.meta?.tags?.find(i => i === props.selectedTag))
     } else {
         // all
-        showBlogs = blogs.list
+        showBlogs = contents
     }
 
     let byTime = {}
@@ -61,7 +65,7 @@ export default function TagPage(props: Props) {
                 tags.map(i => (
                     <Link href={"/tags" + (i === props.selectedTag ? '' : ('/' + i))} className={"mb-3"}>
                         <div
-                            className={[i === props.selectedTag ? 'bg-indigo-600' : 'bg-gray-500', "flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium text-white inline-block"]}>
+                            className={`${i === props.selectedTag ? 'bg-indigo-600' : 'bg-gray-500'} flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium text-white inline-block`}>
                             <span>{i}</span>
                         </div>
                     </Link>
@@ -73,7 +77,7 @@ export default function TagPage(props: Props) {
             {
                 byTimes.map(i => (
                     <div>
-                        <h3 class="py-3 text-4xl xl:text-5xl font-bold dark:text-white text-center">{i.date}</h3>
+                        <h3 className="py-3 text-4xl xl:text-5xl font-bold dark:text-white text-center">{i.date}</h3>
                         <div className="flex flex-col space-y-4 py-3">
                             {i.blogs.map(i => <BlogXS blog={i}></BlogXS>)}
                         </div>

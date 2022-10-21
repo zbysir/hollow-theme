@@ -9,11 +9,13 @@ interface Props {
     time?: string
     footer_links?: Link[]
     children?: any
+    activeHeader?: string,
 }
 
 import hollow from "@bysir/hollow"
+import {defaultConfig} from "../const";
 
-let params = hollow.getConfig();
+let params = hollow.getConfig()|| defaultConfig;
 
 function FontFamilyStyle({link, family, selector}) {
     if (!family) {
@@ -38,7 +40,7 @@ function FontFamilyStyle({link, family, selector}) {
 }
 
 export default function Index(props: Props) {
-    let routerBase = params.base || ''
+    let routerBase = params?.base || ''
 
     return <html lang="zh">
     <head>
@@ -51,8 +53,8 @@ export default function Index(props: Props) {
         <link href={routerBase + '/prism/prism.css'}
               rel="stylesheet"/>
         {
-            Object.keys(params.font).map((selector => {
-                return <FontFamilyStyle selector={selector} {...params.font[selector]}></FontFamilyStyle>
+            params?.fonts?.map((i => {
+                return <FontFamilyStyle {...i}></FontFamilyStyle>
             }))
         }
     </head>
@@ -61,7 +63,7 @@ export default function Index(props: Props) {
     text-black
     dark:text-white
     min-h-screen language-plain flex flex-col">
-    <Header name={props.logo}></Header>
+    <Header name={props.logo} active={props.activeHeader}></Header>
     <div className="flex-1">
         {
             props.children

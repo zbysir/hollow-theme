@@ -1,4 +1,3 @@
-import Container from "../component/Container";
 import {dateFormat} from "../util";
 
 interface Props {

@@ -7,19 +7,23 @@ import TagPage from "./page/TagPage";
 import hollow, {getArticles} from "@bysir/hollow"
 import MarkDown from "./page/Md";
 import {articleRoute} from "./util";
-import Gallery from "./page/Gallery";
-let articles = getArticles('./blogs');
-let params = hollow.getConfig();
+import {defaultConfig, defaultContents} from "./const";
+
+let contents = getArticles('contents').list;
+if (contents.length == 0) {
+    contents = defaultContents
+}
+let params = hollow.getConfig() || defaultConfig;
 
 let global = {
-    title: params.title,
-    logo: params.logo,
-    stack: params.stack,
-    footer_links: params.footer_links,
+    title: params?.title,
+    logo: params?.logo,
+    stack: params?.stack,
+    footer_links: params?.footer_links,
 }
 
 let tags = []
-articles.list.forEach(i => {
+contents.forEach(i => {
     tags = tags.concat(i.meta?.tags)
 })
 
@@ -31,19 +35,19 @@ export default {
         {
             path: '',
             component: () => {
-                return <Index {...global}>
+                return <Index {...global} activeHeader="Home">
                     <Home/>
                 </Index>
             },
         },
-        ...articles.list.map(b => {
+        ...contents.map(b => {
             return {
                 path: articleRoute(b),
                 component: () => {
                     let content = b.getContent()
                     // 不能这样写，因为在 golang 中没有对应的 content 字段，不能赋值成功
                     // b.content = content
-                    return <Index {...global}>
+                    return <Index {...global} activeHeader="Blog">
                         <BlogDetail {...b} content={content}></BlogDetail>
                     </Index>
                 }
@@ -52,7 +56,7 @@ export default {
         {
             path: 'tags',
             component: () => {
-                return <Index {...global}>
+                return <Index {...global} activeHeader="Tags">
                     <TagPage></TagPage>
                 </Index>
             }
@@ -60,7 +64,7 @@ export default {
         ...tags.map(tag => ({
             path: 'tags/' + tag,
             component: () => {
-                return <Index {...global}>
+                return <Index {...global} activeHeader="Tags">
                     <TagPage selectedTag={tag}></TagPage>
                 </Index>
             }
@@ -68,7 +72,7 @@ export default {
         {
             path: 'links',
             component: () => {
-                return <Index {...global}>
+                return <Index {...global} activeHeader="Links">
                     <MarkDown filepath={params.links_page}></MarkDown>
                 </Index>
             }
@@ -76,22 +80,14 @@ export default {
         {
             path: 'about',
             component: () => {
-                return <Index {...global}>
+                return <Index {...global} activeHeader="About">
                     <MarkDown filepath={params.about_page}></MarkDown>
                 </Index>
             }
         },
         {
-            path: 'gallery',
-            component: () => {
-                return <Index {...global}>
-                    <Gallery></Gallery>
-                </Index>
-            }
-        },
-        {
             path: 'article.json',
-            body: JSON.stringify(articles.list.map(i => ({
+            body: JSON.stringify(contents.map(i => ({
                 ...i,
                 content: i.getContent({pure: true})
             })))
