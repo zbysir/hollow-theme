@@ -4,12 +4,12 @@ import Home from "./page/Home";
 import BlogDetail from "./page/BlogDetail";
 import TagPage from "./page/TagPage";
 
-import hollow, {getArticles} from "@bysir/hollow"
+import hollow, {getContents} from "@bysir/hollow"
 import MarkDown from "./page/Md";
 import {articleRoute} from "./util";
 import {defaultConfig, defaultContents} from "./const";
 
-let contents = getArticles('contents').list;
+let contents = getContents('contents').list;
 if (contents.length == 0) {
     contents = defaultContents
 }

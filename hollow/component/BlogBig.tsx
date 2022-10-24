@@ -1,8 +1,8 @@
 import Link from "./Link";
 import {articleRoute, dateFormat} from "../util";
-import {Article} from "@bysir/hollow";
+import {Content} from "@bysir/hollow";
 
-export default function BlogBig({blog}: { blog: Article }) {
+export default function BlogBig({blog}: { blog: Content }) {
     let link = articleRoute(blog)
     const name = blog.meta.title || blog.name
 

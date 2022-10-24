@@ -1,18 +1,17 @@
 import BlogBig from "../component/BlogBig";
 import Container from "../component/Container";
 
-import {getArticles} from "@bysir/hollow"
+import {getContents} from "@bysir/hollow"
 import {sortBlog} from "../util";
 import {defaultContents} from "../const";
 
-let contents = getArticles('contents',
+let contents = getContents('contents',
     {
         sort: sortBlog,
         page: 1,
         size: 20,
     }
 ).list
-
 
 if (contents.length == 0) {
     contents = defaultContents

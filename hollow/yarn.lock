@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@bysir/hollow@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@bysir/hollow/-/hollow-1.0.7.tgz#4ad4263f780a4e25cb4afc69ca9890fd33e7a9a8"
-  integrity sha512-/VJwtgIfOLkmpxxHyUxaVghM/e6c4oGY3O4+I4SWP4hD3oLSVT2UdNSoJtivsdGaOp1ij15Tm/B4QJP0IArygA==
+"@bysir/hollow@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@bysir/hollow/-/hollow-1.0.8.tgz#db27cada92987a81391b01a58c34e32b13ea34b8"
+  integrity sha512-+0oljpVQ9xPW0VdlGCT1tM8kRqJsrTBS2Ox6ZDr5vjBp4ZPKKFjXlnH4lzUwojAOQwQrxGgctryXO3hZ5HH2lw==
 
 "@deanc/esbuild-plugin-postcss@^1.0.2":
   version "1.0.2"

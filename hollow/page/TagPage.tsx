@@ -1,11 +1,11 @@
 import Link from "../component/Link";
 import BlogXS from "../component/BlogXS";
 
-import hollow, {Article} from "@bysir/hollow"
+import hollow, {Content} from "@bysir/hollow"
 import {sortBlog} from "../util";
 import {defaultContents} from "../const";
 
-let contents = hollow.getArticles('contents', {
+let contents = hollow.getContents('contents', {
     sort: sortBlog, page: 1, size: 20
 }).list;
 
@@ -28,7 +28,7 @@ export default function TagPage(props: Props) {
     })
 
     tags = Array.from(new Set(tags))
-    let showBlogs: Article[]
+    let showBlogs: Content[]
 
     if (props.selectedTag) {
         showBlogs = contents.filter(i => i.meta?.tags?.find(i => i === props.selectedTag))

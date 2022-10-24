@@ -35,6 +35,11 @@ theme_config:
 - main.css：生成 tailwindcss
 - app/index.tsx：前端 js 代码编译入口，编译生成 app.js
 
+## 预览主题
+```bash
+yarn preview
+```
+
 ## 如何使用
 修改项目下的 config.yml 文件:
 
@@ -44,5 +49,5 @@ theme: https://github.com/zbysir/hollow-theme/tree/master/hollow
 
 ## 如何开发
 - yarn
-- yarn build
-- hollow server (注意[配置 hollow 使用当前主题](TODO))
+- yarn dev
+- yarn preview

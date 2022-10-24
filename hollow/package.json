@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "build": "node ./build.js"
+    "dev": "node ./build.js",
+    "build": "MODE=prod node ./build.js",
+    "preview": "hollow server -t ."
   },
   "dependencies": {
-    "@bysir/hollow": "^1.0.7",
+    "@bysir/hollow": "^1.0.8",
     "@deanc/esbuild-plugin-postcss": "^1.0.2",
     "@tailwindcss/typography": "^0.5.4",
     "autoprefixer": "^10.4.12",

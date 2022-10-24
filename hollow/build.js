@@ -4,6 +4,21 @@ const tailwindcss = require('tailwindcss')
 const postCssPlugin = require("@deanc/esbuild-plugin-postcss");
 const fs = require("fs-extra");
 
+console.log('MODE', process.env.MODE)
+
+let watch
+
+if (process.env.MODE !== 'prod') {
+  watch = {
+    onRebuild: function (e, result) {
+      if (e) {
+        console.error(e.message)
+      } else {
+        console.log("rebuild success")
+      }
+    }
+  };
+}
 esbuild
   .build({
     entryPoints: [
@@ -45,15 +60,7 @@ esbuild
     sourcemap: true,
     treeShaking: true,
     target: ["chrome78"],
-    watch: {
-      onRebuild: function (e, result) {
-        if (e) {
-          console.error(e.message)
-        } else {
-          console.log("rebuild success")
-        }
-      }
-    },
+    watch: watch,
     write: true,
   })
   .catch((e) => console.error(e.message));
