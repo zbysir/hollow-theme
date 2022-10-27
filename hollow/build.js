@@ -4,8 +4,6 @@ const tailwindcss = require('tailwindcss')
 const postCssPlugin = require("@deanc/esbuild-plugin-postcss");
 const fs = require("fs-extra");
 
-console.log('MODE', process.env.MODE)
-
 let watch
 
 if (process.env.MODE !== 'prod') {

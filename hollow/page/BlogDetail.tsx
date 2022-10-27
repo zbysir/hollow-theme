@@ -12,7 +12,11 @@ export default function BlogDetail(props: Props) {
 
     return <div className="container mx-auto max-w-6xl py-6 px-5 md:py-12 hollow-content">
         <div className="flex justify-center	">
-            <div className="prose dark:prose-invert prose-img:rounded-lg max-w-2xl w-full">
+            <div className="
+            prose dark:prose-invert prose-img:rounded-lg
+            prose-pre:text-xs
+            prose-code:text-xs prose-code:px-2 prose-code:py-1
+            max-w-2xl w-full">
                 <h2> {name} </h2>
                 <div className="flex flex-wrap space-x-3 mb-8">
                     <div><span className="">{dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span></div>
