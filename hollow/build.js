@@ -61,4 +61,7 @@ esbuild
     watch: watch,
     write: true,
   })
+  .then((e) => {
+    console.log("build success")
+  })
   .catch((e) => console.error(e.message));
