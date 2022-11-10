@@ -3,7 +3,7 @@ import BlogXS from "../component/BlogXS";
 
 import hollow, {Content} from "@bysir/hollow"
 import {sortBlog} from "../util";
-import {defaultContents} from "../const";
+import {defaultContents} from "../initial_data";
 
 let contents = hollow.getContents('contents', {
     sort: sortBlog, page: 1, size: 20

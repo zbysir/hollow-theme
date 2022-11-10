@@ -3,7 +3,7 @@ import Container from "../component/Container";
 
 import {getContents} from "@bysir/hollow"
 import {sortBlog} from "../util";
-import {defaultContents} from "../const";
+import {defaultContents} from "../initial_data";
 
 let contents = getContents('contents',
     {

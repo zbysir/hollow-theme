@@ -23,7 +23,7 @@ esbuild
       // "app.css" 用于生成静态网页和前端 react 组件所有需要的 css
       "main.css",
       // 前端组件
-      "app/index.tsx",
+      // "app/index.tsx",
       // index 是生成时的文件，只是用于收集依赖，当文件更改的时候 rebuild 生成 css（tailwindcss 需要从文件中收集依赖）
       // index 不会打包出文件
       "index.tsx"

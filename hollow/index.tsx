@@ -7,7 +7,7 @@ import TagPage from "./page/TagPage";
 import hollow, {getContents} from "@bysir/hollow"
 import MarkDown from "./page/Md";
 import {articleRoute} from "./util";
-import {defaultConfig, defaultContents} from "./const";
+import {defaultConfig, defaultContents} from "./initial_data";
 
 let contents = getContents('contents').list;
 if (contents.length == 0) {

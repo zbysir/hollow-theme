@@ -1,5 +1,5 @@
 import hollow from "@bysir/hollow"
-import {defaultConfig} from "../const";
+import {defaultConfig} from "../initial_data";
 
 let params = hollow.getConfig() || defaultConfig;
 

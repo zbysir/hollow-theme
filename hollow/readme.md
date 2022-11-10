@@ -7,9 +7,11 @@ Hollow 系统同名主题（也是第一款主题）。https://blog.bysir.top/
 - 支持搜索
 - 支持 暗夜模式
 
-![img_1.png](docs/img_1.png)
 ![img.png](docs/img.png)
-![img_2.png](docs/img_2.png)
+![img.png](docs/img4.png)
+![img.png](docs/img2.png)
+![img.png](docs/img3.png)
+
 ## Params
 
 支持配置以下参数：
@@ -49,5 +51,4 @@ theme: https://github.com/zbysir/hollow-theme/tree/master/hollow
 
 ## 如何开发
 - yarn
-- yarn dev
 - yarn preview
