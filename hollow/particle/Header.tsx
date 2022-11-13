@@ -1,5 +1,5 @@
 import Link from "../component/Link";
-import { Search } from "../app/search";
+import Search from "../app/search";
 
 export default function Header(props: { name: string, active: string }) {
     const menus = [
@@ -7,6 +7,7 @@ export default function Header(props: { name: string, active: string }) {
         {href: '/tags', name: 'Tags'},
         {href: '/about', name: 'About'},
         {href: '/links', name: 'Links'},
+        {href: '/gallery', name: 'Gallery'},
     ].map(i => ({
             ...i,
             active: i.name === props.active
@@ -54,7 +55,7 @@ export default function Header(props: { name: string, active: string }) {
                                 <Link
                                     href={i.href}
                                     className={`p-2 transition duration-150
-                                        ${i.active? "hover:dark:text-gray-200 hover:text-gray-800": "text-gray-500 dark:text-gray-700"}
+                                        ${i.active? "hover:dark:text-gray-200 hover:text-gray-800 text-black dark:text-white": "text-gray-500 dark:text-gray-500"}
                                 `}>{i.name}</Link>
                             ))
                         }

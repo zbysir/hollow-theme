@@ -2,7 +2,7 @@ import Fuse from 'fuse.js'
 import { useEffect, useRef, useState } from "react";
 import { articleRoute } from "../util";
 
-export function Search() {
+export default function Search() {
   const [fuse, setFuse] = useState<Fuse<any>>()
   const [searchResult, setSearchResult] = useState<any[]>()
   const [showSearch, setShowSearch] = useState(false)

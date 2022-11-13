@@ -8,6 +8,7 @@ import hollow, {getContents} from "@bysir/hollow"
 import MarkDown from "./page/Md";
 import {articleRoute} from "./util";
 import {defaultConfig, defaultContents} from "./initial_data";
+import Gallery from "./page/Gallery";
 
 let contents = getContents('contents').list;
 if (contents.length == 0) {
@@ -82,6 +83,14 @@ export default {
             component: () => {
                 return <Index {...global} activeHeader="About">
                     <MarkDown filepath={params.about_page}></MarkDown>
+                </Index>
+            }
+        },
+        {
+          path:'gallery',
+            component: () => {
+                return <Index {...global} activeHeader="Gallery">
+                    <Gallery></Gallery>
                 </Index>
             }
         },
