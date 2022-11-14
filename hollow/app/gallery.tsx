@@ -57,7 +57,7 @@ export default function Gallery({gallery}: GalleryBoxProps) {
 
             </div>
             <div className={`absolute top-0 left-0 w-full h-full bg-black opacity-75 z-[-1]
-            flex items-center justify-center`}>
+            flex items-center justify-center text-white`}>
                 Loading...
             </div>
         </div>
