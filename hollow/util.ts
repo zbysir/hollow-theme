@@ -1,20 +1,20 @@
-import {Article} from "@bysir/hollow";
+import {Content} from "@bysir/hollow";
 
-export function sortBlog(a: Article, b: Article) {
+export function sortBlog(a: Content, b: Content) {
     if (a.meta?.featured || b.meta?.featured) {
         return (a.meta?.featured ? 1 : 0) > (b.meta?.featured ? 1 : 0)
     }
     return new Date(a.meta.date) > new Date(b.meta.date)
 }
 
-export function articleRoute(b?: Article) {
+export function articleRoute(b?: Content) {
     if (!b) {
         return '/blogs'
     }
     return '/blogs/' + (b.meta?.slug || b.name)
 }
 
-export function dateFormat(date, fmt,) {
+export function dateFormat(date, fmt) {
     let ret;
     const opt = {
         "Y+": date.getFullYear().toString(),        // 年

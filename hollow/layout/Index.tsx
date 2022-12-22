@@ -78,6 +78,8 @@ export default function Index(props: Props) {
 
     <script src={routerBase + '/prism/prism.js'}></script>
     <script src={routerBase + '/app/index.js'}></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
 
     </body>
     </html>

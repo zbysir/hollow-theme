@@ -74,7 +74,7 @@ export default {
             path: 'links',
             component: () => {
                 return <Index {...global} activeHeader="Links">
-                    <MarkDown filepath={params.links_page}></MarkDown>
+                    <MarkDown filepath={params.links_page} md={params.links_page_md}></MarkDown>
                 </Index>
             }
         },
@@ -82,7 +82,7 @@ export default {
             path: 'about',
             component: () => {
                 return <Index {...global} activeHeader="About">
-                    <MarkDown filepath={params.about_page}></MarkDown>
+                    <MarkDown filepath={params.about_page} md={params.about_page_md}></MarkDown>
                 </Index>
             }
         },

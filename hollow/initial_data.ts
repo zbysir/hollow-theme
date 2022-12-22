@@ -1,25 +1,6 @@
 import {Content} from "@bysir/hollow";
 import {GalleryItem} from "./page/Gallery";
 
-export const defaultConfig = {
-    logo: "Hollow Theme",
-    stack: "Hollow"
-}
-
-export const defaultContents: Content[] =
-    [{
-        name: "Demo",
-        getContent: () => {
-            return "<p>这篇文章在你新增任意文章后就会消失。</p>"
-        },
-        meta: {
-            tags: ["demo", "hello"],
-            date: '2022-01-01'
-        },
-        content: "",
-        ext: "",
-        is_dir: false,
-    }]
 
 let pics = [
     {
@@ -51,7 +32,43 @@ let pics = [
     },
 ];
 
-export const defaultGallery: { title: string, items: GalleryItem[] } = {
-    title: "照片与故事",
-    items: pics
+export const defaultConfig = {
+    logo: "Hollow Theme",
+    stack: "Hollow",
+    about_page_md: `# 关于 Hollow
+Hollow 是一款自由度极高的静态博客生成器
+`,
+    links_page_md: `# 友链
+- [Hollow](https://github.com/zbysir/hollow)`,
+    gallery: {
+        title: "照片与故事",
+        items: pics
+    }
 }
+
+export const defaultContents: Content[] =
+    [{
+        name: "Demo",
+        getContent: () => {
+            return "<p>Hollow 主题的初始文章，这篇文章在你 新增 任意文章后就会消失。</p>"
+        },
+        meta: {
+            tags: ["demo", "hello"],
+            date: '2022-01-01',
+            anchor: {
+                "Hollow": {
+                    title: "Hollow",
+                    content_md: `### 相关文章
+- [关于 Hollow](https://baidu.com)
+`
+                },
+                "新增":{
+                    title: "如何新增文章",
+                    content_md: `[如何新增文章？](https://baidu.com)`
+                }
+            }
+        },
+        content: "",
+        ext: "",
+        is_dir: false,
+    }]

@@ -17,7 +17,7 @@ Error generating stack: `+i.message+`
                     text-white
                     px-3
                     `,children:(0,we.jsx)("span",{className:"whitespace-pre-wrap",children:t==null?void 0:t.text})})]}),(0,we.jsx)("div",{className:`absolute top-0 left-0 w-full h-full bg-black opacity-75 z-[-1]
-            flex items-center justify-center text-white`,children:"Loading..."})]})]})}var Ru=ze(it());window.onload=function(){let e=document.getElementById("react-dom-search");e&&Mu.default.createRoot(e).render((0,Ru.jsx)(Lu,{}));let t=document.getElementById("gallery-box");t&&Mu.default.createRoot(t).render((0,Ru.jsx)(Tu,{gallery:JSON.parse(t.dataset.json)}))};})();
+            flex items-center justify-center text-white`,children:"Loading..."})]})]})}var Ru=ze(it());window.onload=function(){let e=document.getElementById("react-dom-search");e&&Mu.default.createRoot(e).render((0,Ru.jsx)(Lu,{}));let t=document.getElementById("gallery-box");t&&Mu.default.createRoot(t).render((0,Ru.jsx)(Tu,{gallery:JSON.parse(t.dataset.json)}));let n=document.querySelectorAll("[data-anchor]");n&&n.forEach(r=>{if(r instanceof HTMLElement){let l=JSON.parse(r.dataset.anchor);tippy(r,{content:`<div class="prose prose-sm p-2">${l.content}</div>`,interactive:!0,allowHTML:!0,theme:"light",appendTo:()=>document.body})}})};})();
 /**
  * @license React
  * react-dom.production.min.js

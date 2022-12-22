@@ -14,4 +14,22 @@ window.onload = function () {
         const root = ReactDOM.createRoot(gallery);
         root.render(<Gallery gallery={JSON.parse(gallery.dataset['json'])}></Gallery>);
     }
+
+    const anchors = document.querySelectorAll("[data-anchor]")
+    if (anchors) {
+        anchors.forEach(i => {
+            if (i instanceof HTMLElement) {
+                const a = JSON.parse(i.dataset['anchor'])
+                // https://atomiks.github.io/tippyjs/
+                // @ts-ignore
+                tippy(i, {
+                    content: `<div class="prose prose-sm p-2">${a.content}</div>`,
+                    interactive: true,
+                    allowHTML: true,
+                    theme: 'light',
+                    appendTo: () => document.body, // 移动到 body 更好做样式
+                });
+            }
+        })
+    }
 }

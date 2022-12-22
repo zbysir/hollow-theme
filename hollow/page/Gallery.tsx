@@ -22,11 +22,11 @@ export interface Gallery {
 }
 
 import hollow from "@bysir/hollow"
-import {defaultGallery} from "../initial_data";
+import {defaultConfig} from "../initial_data";
 import GalleryBox from "../component/GalleryBox";
 
-let params = hollow.getConfig();
-let gallery: Gallery = params?.gallery || defaultGallery
+let params = hollow.getConfig() || defaultConfig;
+let gallery: Gallery = params?.gallery
 
 export default function Gallery() {
     return <div className="container mx-auto max-w-2xl py-6 px-5 md:py-12">

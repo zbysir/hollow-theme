@@ -1,4 +1,5 @@
-import {dateFormat} from "../util";
+import { dateFormat} from "../util";
+import {anchor} from "../util/serviceside";
 
 interface Props {
     name: string,
@@ -9,6 +10,7 @@ interface Props {
 export default function BlogDetail(props: Props) {
     let tags = props.meta?.tags
     let name = props.meta?.title || props.name
+    let content = anchor(props.content, props.meta?.anchor)
 
     return <div className="container mx-auto max-w-6xl py-6 px-5 md:py-12 hollow-content">
         <div className="flex justify-center	">
@@ -31,7 +33,7 @@ export default function BlogDetail(props: Props) {
                     }
                 </div>
 
-                <div dangerouslySetInnerHTML={{__html: props.content}}></div>
+                <div dangerouslySetInnerHTML={{__html: content}}></div>
             </div>
         </div>
     </div>

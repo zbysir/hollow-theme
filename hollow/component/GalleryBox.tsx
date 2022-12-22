@@ -1,5 +1,3 @@
-import hollow from "@bysir/hollow"
-import {defaultConfig} from "../initial_data";
 import {Gallery, GalleryItem} from "../page/Gallery";
 
 
