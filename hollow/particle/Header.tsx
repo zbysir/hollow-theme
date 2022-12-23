@@ -55,18 +55,12 @@ export default function Header(props: { name: string, active: string }) {
                                 <Link
                                     href={i.href}
                                     className={`p-2 transition duration-150
-                                        ${i.active? "hover:dark:text-gray-200 hover:text-gray-800 text-black dark:text-white": "text-gray-500 dark:text-gray-500"}
+                                        ${i.active? "opacity-100": "opacity-50 hover:opacity-75"}
                                 `}>{i.name}</Link>
                             ))
                         }
                     </nav>
                 </div>
-
-                {/*<div id="react-dom-search"*/}
-                {/*     className={"ml-3 flex items-center hidden"}>*/}
-                {/*    /!* 可以引入 React 代码，实现公用 *!/*/}
-                {/*    <Search></Search>*/}
-                {/*</div>*/}
             </div>
         </section>
     </div>

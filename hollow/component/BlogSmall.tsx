@@ -1,7 +1,7 @@
 import Link from "./Link";
-import {Article} from "@bysir/hollow";
+import {Content} from "@bysir/hollow";
 
-export default function BlogSmall({blog}: { blog: Article }) {
+export default function BlogSmall({blog}: { blog: Content }) {
     let link = '/blogs/' + blog.name
     let name = blog.meta?.title || blog.name
 

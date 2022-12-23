@@ -10,6 +10,7 @@ let contents = getContents('contents',
         sort: sortBlog,
         page: 1,
         size: 20,
+        filter: i => (i.meta?.draft !== true),
     }
 ).list
 

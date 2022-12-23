@@ -20,7 +20,7 @@ export default function BlogDetail(props: Props) {
             prose-pre:text-xs
             prose-code:text-xs prose-code:px-2 prose-code:py-1
             max-w-2xl w-full">
-                <h2> {name} </h2>
+                <h2 className="inline-flex items-start space-x-1"> <span>{name}</span> {props.meta?.draft ? <span className="text-xs">[Draft]</span> : null}</h2>
                 <div className="flex flex-wrap space-x-3 mb-8">
                     <div><span className="">{dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span></div>
                     {
