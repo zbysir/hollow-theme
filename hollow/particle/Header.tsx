@@ -1,5 +1,6 @@
 import Link from "../component/Link";
 import Search from "../app/search";
+import SearchBtn from "../component/Search";
 
 export default function Header(props: { name: string, active: string }) {
     const menus = [
@@ -38,7 +39,7 @@ export default function Header(props: { name: string, active: string }) {
                             </span>
                         </Link>
                         <div id="react-dom-search" className="ml-3 mt-2">
-                            <Search></Search>
+                            <SearchBtn></SearchBtn>
                         </div>
                     </div>
 

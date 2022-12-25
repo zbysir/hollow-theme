@@ -6,7 +6,7 @@ window.onload = function () {
     const searchDom = document.getElementById('react-dom-search')
     if (searchDom) {
         const root = ReactDOM.createRoot(searchDom);
-        root.render(<Search></Search>);
+        root.render(<Search enable={true}></Search>);
     }
 
     const gallery = document.getElementById("gallery-box")

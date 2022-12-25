@@ -22,6 +22,7 @@ export default function Gallery({gallery}: GalleryBoxProps) {
 
     return <>
         <GalleryBox
+            enable={true}
             gallery={gallery} onClick={(item) => {
             setCurrItem(item)
         }}></GalleryBox>
