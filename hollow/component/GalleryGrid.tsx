@@ -24,7 +24,7 @@ interface GalleryBoxProps {
     enable?: boolean
 }
 
-export default function GalleryBox({gallery, onClick, enable}: GalleryBoxProps) {
+export default function GalleryGrid({gallery, onClick, enable}: GalleryBoxProps) {
     return <div className="
         mt-8
         grid grid-cols-4 md:grid-cols-5 gap-2

@@ -1,5 +1,5 @@
 import {Gallery, GalleryItem} from "../page/Gallery";
-import GalleryBox from "../component/GalleryBox";
+import GalleryGrid from "../component/GalleryGrid";
 import {useEffect, useState} from "react";
 
 interface GalleryBoxProps {
@@ -21,11 +21,11 @@ export default function Gallery({gallery}: GalleryBoxProps) {
     }, [currItem])
 
     return <>
-        <GalleryBox
+        <GalleryGrid
             enable={true}
             gallery={gallery} onClick={(item) => {
             setCurrItem(item)
-        }}></GalleryBox>
+        }}></GalleryGrid>
 
         <div className={`fixed top-0 left-0 right-0 w-full h-full z-100
         transition-opacity

@@ -1,6 +1,5 @@
 import Link from "../component/Link";
-import Search from "../app/search";
-import SearchBtn from "../component/Search";
+import SearchBtn from "../component/SearchBtn";
 
 export default function Header(props: { name: string, active: string }) {
     const menus = [

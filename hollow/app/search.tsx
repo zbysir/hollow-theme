@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js'
 import {useEffect, useRef, useState} from "react";
 import {articleRoute} from "../util";
-import SearchBtn from "../component/Search";
+import SearchBtn from "../component/SearchBtn";
 
 export default function Search({enable}: { enable?: boolean }) {
     const [fuse, setFuse] = useState<Fuse<any>>()

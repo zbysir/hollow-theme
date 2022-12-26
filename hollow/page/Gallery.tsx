@@ -23,7 +23,7 @@ export interface Gallery {
 
 import hollow from "@bysir/hollow"
 import {defaultConfig} from "../initial_data";
-import GalleryBox from "../component/GalleryBox";
+import GalleryGrid from "../component/GalleryGrid";
 
 let params = hollow.getConfig() || defaultConfig;
 let gallery: Gallery = params?.gallery
@@ -36,7 +36,7 @@ export default function Gallery() {
             id="gallery-box"
             data-json={JSON.stringify(gallery)}
         >
-            <GalleryBox gallery={gallery}></GalleryBox>
+            <GalleryGrid gallery={gallery}></GalleryGrid>
         </div>
     </div>
 }
