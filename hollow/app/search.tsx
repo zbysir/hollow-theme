@@ -3,7 +3,7 @@ import {useEffect, useRef, useState} from "react";
 import {articleRoute} from "../util";
 import SearchBtn from "../component/SearchBtn";
 
-export default function Search({enable}: { enable?: boolean }) {
+export default function Search() {
     const [fuse, setFuse] = useState<Fuse<any>>()
     const [searchResult, setSearchResult] = useState<any[]>()
     const [showSearch, setShowSearch] = useState(false)
@@ -28,7 +28,7 @@ export default function Search({enable}: { enable?: boolean }) {
                     inputRef?.current?.focus()
                 }, 17)
             }}
-            enable={enable}></SearchBtn>
+            enable={true}></SearchBtn>
 
         <div>
             <div className={`modal ${showSearch ? 'modal-open' : ''} items-center`}>
