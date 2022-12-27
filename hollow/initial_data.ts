@@ -1,6 +1,4 @@
 import {Content} from "@bysir/hollow";
-import {GalleryItem} from "./page/Gallery";
-
 
 let pics = [
     {
@@ -43,7 +41,13 @@ Hollow 是一款自由度极高的静态博客生成器
     gallery: {
         title: "照片与故事",
         items: pics
-    }
+    },
+    fonts: [
+        {
+            selector: "body",
+            family: "Noto Serif SC"
+        }
+    ]
 }
 
 export const defaultContents: Content[] =

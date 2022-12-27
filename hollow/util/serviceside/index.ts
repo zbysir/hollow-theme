@@ -18,6 +18,9 @@ export function anchor(text: string, as: Record<string, Anchor>) {
     // 使用正则替换
     return text.replace(a, (a) => {
         let a1 = as[a];
+        if (!a1){
+            return a
+        }
         if (a1.content_md) {
             a1.content = md(a1.content_md)
         }

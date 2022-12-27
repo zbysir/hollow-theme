@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   mode: 'jit',
   content: [
-    './**/*.{jsx,tsx,html,ts}',
+    './**/*.{jsx,tsx,html,ts,mdx}',
   ],
   // darkMode: "class",
   theme: {
@@ -26,6 +26,14 @@ module.exports = {
     require("daisyui")
   ],
   daisyui:{
-    'themes':['wireframe', 'dark']
+    'themes': [
+      {
+        wireframe: {
+          ...require("daisyui/src/colors/themes")["[data-theme=wireframe]"],
+          fontFamily: null,
+        },
+        dark: {}
+      }
+    ]
   }
 }

@@ -4,7 +4,7 @@ import {Content} from "@bysir/hollow";
 
 export default function BlogBig({blog}: { blog: Content }) {
     let link = articleRoute(blog)
-    const name = blog.meta.title || blog.name
+    const name = blog.meta?.title || blog.name
 
     return <div className="relative group">
         <div className="
@@ -24,7 +24,7 @@ export default function BlogBig({blog}: { blog: Content }) {
                 </h1>
                 <p className="pt-2 text-sm font-medium dark:text-gray-300 text-gray-700">
                     {
-                        blog.meta.featured ? <span>（置顶）</span> : null
+                        blog.meta?.featured ? <span>（置顶）</span> : null
                     }
                     <span className="mx-1">{dateFormat(new Date(blog.meta?.date), "mm-dd / YY")}</span>
                 </p>
