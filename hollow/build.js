@@ -1,22 +1,9 @@
 const esbuild = require("esbuild");
 const autoprefixer = require("autoprefixer");
 const tailwindcss = require('tailwindcss')
-const postCssPlugin = require("@deanc/esbuild-plugin-postcss");
 const fs = require("fs-extra");
+const stylePlugin = require('esbuild-style-plugin')
 
-let watch
-
-if (process.env.MODE !== 'prod') {
-  watch = {
-    onRebuild: function (e, result) {
-      if (e) {
-        console.error(e.message)
-      } else {
-        console.log("rebuild success")
-      }
-    }
-  };
-}
 esbuild
   .build({
     entryPoints: [
@@ -46,10 +33,10 @@ esbuild
         }
       },
 
-      postCssPlugin({
-          plugins: [tailwindcss, autoprefixer],
-        },
-      ),
+      stylePlugin({
+        postcss: {plugins: [tailwindcss, autoprefixer]},
+        extract: true
+      })
     ],
     external: ['@bysir/hollow'],
     metafile: true,
@@ -58,7 +45,15 @@ esbuild
     sourcemap: true,
     treeShaking: true,
     target: ["chrome78"],
-    watch: watch,
+    watch: process.env.MODE !== 'prod' ? {
+      onRebuild: function (e, result) {
+        if (e) {
+          console.error(e.message)
+        } else {
+          console.log("rebuild success")
+        }
+      }
+    } : null,
     write: true,
   })
   .then((e) => {
