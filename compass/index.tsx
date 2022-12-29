@@ -24,9 +24,9 @@ if (articles.list.length === 0) {
     articles.list = defaultContents
 }
 
-// 第一个作为首页
-// const first = articles.list[0]
-let first = null
+// 第一个作为 doc 首页
+const first = articles.list && articles.list[0]
+// let first = null
 
 let global = {
     title: params?.title,
@@ -61,7 +61,6 @@ if (params?.home_page) {
         }
     }
 } else if (articles.list[0]) {
-    first = articles.list[0]
     homepage = {
         path: '',
         component: () => {
