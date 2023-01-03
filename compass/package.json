@@ -5,7 +5,7 @@
     "preview": "hollow server -t ."
   },
   "dependencies": {
-    "@bysir/hollow": "^1.0.8",
+    "@bysir/hollow": "^1.0.9",
     "esbuild-style-plugin": "^1.6.1",
     "@tailwindcss/typography": "^0.5.4",
     "autoprefixer": "^10.4.12",

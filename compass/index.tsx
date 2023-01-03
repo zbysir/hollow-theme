@@ -15,7 +15,7 @@ const articles = getContents('contents',
         sort: sortBlog,
         page: 1,
         size: 20,
-        filter: i => (i.meta?.draft !== true),
+        // filter: i => (i.meta?.draft !== true),
         tree: true
     }
 );
@@ -24,8 +24,6 @@ if (articles.list.length === 0) {
     articles.list = defaultContents
 }
 
-// 第一个作为 doc 首页
-const first = articles.list && articles.list[0]
 // let first = null
 
 let global = {
@@ -48,6 +46,12 @@ function flatArticles(as: Content[]): Content[] {
 }
 
 let docs = flatArticles(articles.list)
+
+// console.log('articles', JSON.stringify(articles))
+// console.log('docs', JSON.stringify(docs))
+
+// 第一个作为 doc 首页
+const first = docs && docs[0]
 
 let homepage = {}
 

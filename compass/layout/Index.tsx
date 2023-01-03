@@ -11,6 +11,14 @@ interface Props {
     children?: any
 }
 
+function CssLink({links}: { links: string[] }) {
+    return links.map(i => <link href={i} rel="stylesheet"/>)
+}
+
+function JsLink({links}: { links: string[] }) {
+    return links.map(i => <script src={i}></script>)
+}
+
 import hollow from "@bysir/hollow"
 
 let params = hollow.getConfig();
@@ -25,6 +33,7 @@ export default function Index(props: Props) {
         <title>{props.title || 'UnTitled'}</title>
         <link href={routerBase + '/main.css'} rel="stylesheet"/>
         <link href={routerBase + '/prism/prism.css'} rel="stylesheet"/>
+        <CssLink links={params.assets.filter(i => i.endsWith('.css'))}></CssLink>
     </head>
     <body className="
     bg-gray-50 dark:bg-black
@@ -47,6 +56,7 @@ export default function Index(props: Props) {
     </div>
 
     <script src={routerBase + '/prism/prism.js'}></script>
+    <JsLink links={params.assets.filter(i => i.endsWith('.js'))}></JsLink>
     </body>
     </html>
 }

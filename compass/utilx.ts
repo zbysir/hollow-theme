@@ -1,14 +1,13 @@
-import {Article} from "@bysir/hollow";
+import {Content} from "@bysir/hollow";
 
-export function sortBlog(a: Article, b: Article) {
+export function sortBlog(a: Content, b: Content) {
     if (a.meta?.featured || b.meta?.featured) {
         return (a.meta?.featured ? 1 : 0) > (b.meta?.featured ? 1 : 0)
     }
-    // console.log('xxx', a.meta.sort)
-    return a.meta.sort < b.meta.sort
+    return a.meta?.sort < b.meta?.sort
 }
 
-export function articleRoute(b?: Article) {
+export function articleRoute(b?: Content) {
     if (!b) {
         return ''
     }

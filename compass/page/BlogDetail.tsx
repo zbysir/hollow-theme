@@ -1,13 +1,9 @@
 import {dateFormat} from "../utilx";
+import {Toc} from "../component/Toc";
+import {Content} from "@bysir/hollow";
 
-interface Props {
-    name: string,
-    content: string
-    meta?: any
-    menu: any
-}
 
-export default function BlogDetail(props: Props) {
+export default function BlogDetail(props: Content & {menu: any}) {
     let tags = props.meta?.tags
     let name = props.meta?.title || props.name
 
@@ -17,6 +13,7 @@ export default function BlogDetail(props: Props) {
                 {props.menu}
             </div>
             <div className="flex-1">
+
                 <div className="flex justify-center	">
                     <div className="prose dark:prose-invert prose-img:rounded-lg max-w-2xl w-full">
                         <h2> {name} </h2>
@@ -39,6 +36,10 @@ export default function BlogDetail(props: Props) {
                         <div dangerouslySetInnerHTML={{__html: props.content}}></div>
                     </div>
                 </div>
+            </div>
+
+            <div className="w-60">
+                <Toc items={props.toc}/>
             </div>
         </div>
 
