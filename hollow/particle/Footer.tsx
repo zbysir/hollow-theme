@@ -50,7 +50,7 @@ export default function Footer(props: Props) {
                 {/*<a href="#_" class="text-xl font-black leading-none text-gray-900 select-none logo">{props.name}<span*/}
                 {/*    class="text-indigo-600">.</span></a>*/}
                 <p className="mt-4 text-sm text-gray-500 sm:border-gray-200 sm:mt-0">© 2022 {props.name}'s Blog - <span
-                    dangerouslySetInnerHTML={{__html: hollow.md(props.stack, {unwrap: true})}}></span>
+                    dangerouslySetInnerHTML={{__html: props.stack}}></span>
                 </p>
                 <span className="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
                     {
