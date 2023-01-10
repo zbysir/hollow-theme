@@ -15,7 +15,7 @@ interface Props {
 import hollow from "@bysir/hollow"
 import {defaultConfig} from "../initial_data";
 
-let params = hollow.getConfig()|| defaultConfig;
+let params = hollow.getConfig() || defaultConfig;
 
 function FontFamilyStyle({link, family, selector}) {
     if (!family) {
@@ -57,6 +57,9 @@ export default function Index(props: Props) {
                 return <FontFamilyStyle {...i}></FontFamilyStyle>
             }))
         }
+        {
+            params.assets?.filter(i => i.endsWith('.css')).map(i => <link href={i} rel="stylesheet"/>)
+        }
     </head>
     <body className="
     bg-gray-50 dark:bg-black
@@ -80,6 +83,9 @@ export default function Index(props: Props) {
     <script src={routerBase + '/app/index.js'}></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+    {
+        params.assets?.filter(i => i.endsWith('.js')).map(i => <script src={i}></script>)
+    }
 
     </body>
     </html>
