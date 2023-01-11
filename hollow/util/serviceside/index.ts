@@ -18,12 +18,12 @@ export function anchor(text: string, as: Record<string, Anchor>) {
     // 使用正则替换
     return text.replace(a, (a) => {
         let a1 = as[a];
-        if (!a1){
+        if (!a1) {
             return a
         }
         if (a1.content_md) {
             a1.content = md(a1.content_md)
         }
-        return `<span class="underline decoration-wavy" data-anchor="${htmlEncode(JSON.stringify(a1))}">${a}</span>`
+        return `<span class="t-underline t-decoration-wavy" data-anchor="${htmlEncode(JSON.stringify(a1))}">${a}</span>`
     })
 }

@@ -18,44 +18,44 @@ export default function Header(props: { name: string, active: string }) {
     return <div
     >
         {/* copy from https://devdojo.com/tails/v1/app#_ */}
-        <section className="w-full
-        dark:bg-gray-900 bg-white
-        border-b border-gray-200 dark:border-gray-800">
+        <section className="t-w-full
+        t-bg-white dark:t-bg-neutral-900
+        t-border-b t-border-neutral-200 dark:t-border-neutral-800">
             <div
                 className="
-                container flex flex-col flex-wrap items-center
-                justify-center
-                mx-auto md:flex-row max-w-6xl px-5 py-1">
-                <div className="relative flex flex-col md:flex-row max-w-full">
-                    <div className="flex items-center justify-center
-                     pt-2 pb-1 md:pb-2 md:my-0
+                t-container t-flex t-flex-col t-flex-wrap t-items-center
+                t-justify-center
+                t-mx-auto md:t-flex-row t-max-w-6xl t-px-5 t-py-1">
+                <div className="t-relative t-flex t-flex-col md:t-flex-row t-max-w-full">
+                    <div className="t-flex t-items-center t-justify-center
+                     t-pt-2 t-pb-1 md:t-pb-2 md:t-my-0
                     ">
                         <Link href="/"
-                              className="flex font-medium ">
+                              className="t-flex t-font-medium ">
                             <span
-                              className={`text-xl ${thin ? 'font-extralight' : 'font-black'} leading-none text-gray-900 dark:text-gray-100 select-none`}>
+                              className={`t-text-xl ${thin ? 't-font-extralight' : 't-font-black'} t-leading-none t-text-neutral-900 dark:t-text-neutral-100 t-select-none`}>
                                 {props.name}
                             </span>
                         </Link>
-                        <div id="react-dom-search" className="ml-3 mt-2">
+                        <div id="react-dom-search" className="t-ml-3 t-mt-2">
                             <SearchBtn></SearchBtn>
                         </div>
                     </div>
 
-                    <div className="md:py-3">
-                        <div className="md:pl-4 md:ml-4 md:border-l md:border-gray-200 md:dark:border-gray-700 h-full"></div>
+                    <div className="md:t-py-3">
+                        <div className="md:t-pl-4 md:t-ml-4 md:t-border-l md:t-border-neutral-200 md:dark:t-border-neutral-700 t-h-full"></div>
                     </div>
                     <nav
-                      className={`flex space-x-2 overflow-x-auto items-center text-lg
-                        tracking-wide
-                        md:border-gray-200
-                        ${thin ? 'font-extralight' : 'font-medium'}`}>
+                      className={`t-flex t-space-x-2 t-overflow-x-auto t-items-center t-text-lg
+                        t-tracking-wide
+                        md:t-border-neutral-200
+                        ${thin ? 't-font-extralight' : 't-font-medium'}`}>
                         {
                             menus.map(i => (
                                 <Link
                                     href={i.href}
-                                    className={`p-2 transition duration-150
-                                        ${i.active? "opacity-100": "opacity-50 hover:opacity-75"}
+                                    className={`t-p-2 t-transition t-duration-150
+                                        ${i.active? "t-opacity-100": "t-opacity-50 hover:t-opacity-75"}
                                 `}>{i.name}</Link>
                             ))
                         }

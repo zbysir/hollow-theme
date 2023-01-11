@@ -2,6 +2,9 @@ const esbuild = require("esbuild");
 const autoprefixer = require("autoprefixer");
 const tailwindcss = require('tailwindcss')
 const stylePlugin = require('esbuild-style-plugin')
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const fs = require("fs");
 
 esbuild
   .build({
@@ -14,7 +17,49 @@ esbuild
     bundle: true,
     plugins: [
       stylePlugin({
-        postcss: {plugins: [tailwindcss, autoprefixer]},
+        postcss: {
+          plugins: [tailwindcss({
+            mode: 'jit',
+            content: [
+              './**/*.{jsx,tsx,html,ts,mdx}',
+            ],
+            // darkMode: "class",
+            theme: {
+              extend: {
+                // fix neutral
+                // https://github.com/saadeghi/daisyui/issues/683
+                colors: {
+                  neutral: colors.neutral,
+                },
+              },
+              fontFamily: {
+                ...defaultTheme.fontFamily,
+              }
+            },
+            variants: {},
+            plugins: [
+              require('@tailwindcss/typography')({
+                // :where 在手机上兼容性不佳，不启用
+                // https://github.com/tailwindlabs/tailwindcss-typography/pull/203
+                target: 'legacy'
+              }),
+              require("daisyui")
+            ],
+            daisyui: {
+              themes: ['wireframe', 'dark']
+            },
+            // 添加前缀让 source 中使用的 tailwind 与 theme 互不影响。
+            prefix: 't-'
+          }), autoprefixer]
+        },
+        cssModulesOptions: {
+          getJSON: function (cssFileName, json, outputFileName) {
+            const path = require("path");
+            const cssName = path.basename(cssFileName, ".css");
+            const jsonFileName = path.resolve("./statics/" + cssName + ".json");
+            fs.writeFileSync(jsonFileName, JSON.stringify(json));
+          },
+        }
       })
     ],
     external: ['@bysir/hollow'],

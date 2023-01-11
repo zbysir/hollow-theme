@@ -5,10 +5,10 @@ interface SearchBtnProps {
 
 export default function SearchBtn(props: SearchBtnProps) {
     return <>
-        <button className={`btn btn-ghost btn-xs btn-circle w-6 h-6 p-0 ${props.enable ? '' : 'btn-disabled'}`}
+        <button className={`t-btn t-btn-ghost t-btn-xs t-btn-circle t-w-6 t-h-6 t-p-0 ${props.enable ? '' : 't-btn-disabled'}`}
                 onClick={props.onBtnClick}>
             <svg xmlns="http://www.w3.org/2000/svg"
-                 className="h-5 w-5"
+                 className="t-h-5 t-w-5"
                  fill="none"
                  viewBox="0 0 24 24"
                  stroke="currentColor">

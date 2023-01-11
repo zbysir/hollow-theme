@@ -62,10 +62,11 @@ export default function Index(props: Props) {
         }
     </head>
     <body className="
-    bg-gray-50 dark:bg-black
-    text-black
-    dark:text-white
-    min-h-screen language-plain flex flex-col">
+    t-bg-neutral-50 dark:t-bg-black
+    t-text-black
+    dark:t-text-white
+    t-min-h-screen t-flex t-flex-col
+    language-plain">
     <Header name={props.logo} active={props.activeHeader}></Header>
     <div className="flex-1">
         {

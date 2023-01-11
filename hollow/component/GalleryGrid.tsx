@@ -9,10 +9,10 @@ interface GalleryImgProps {
 
 export function GalleryImg({item, onClick, enable}: GalleryImgProps) {
     return <div onClick={() => onClick && onClick(item)}
-                className={"cursor-pointer relative pt-[100%]"}>
+                className={"t-cursor-pointer t-relative t-pt-[100%]"}>
         {!enable ?
-            <div className={"animate-pulse absolute rounded-lg h-full w-full top-0 z-10 bg-gray-200 dark:bg-gray-900"}>            </div> : null}
-        <img className={"absolute object-cover rounded-lg h-full w-full top-0"} src={item.thumb || item.url}
+            <div className={"t-animate-pulse t-absolute t-rounded-lg t-h-full t-w-full t-top-0 t-z-10 t-bg-neutral-200 dark:t-bg-gray-900"}>            </div> : null}
+        <img className={"t-absolute t-object-cover t-rounded-lg t-h-full t-w-full t-top-0"} src={item.thumb || item.url}
              loading="lazy"
              alt={item.text}/>
     </div>
@@ -26,9 +26,9 @@ interface GalleryBoxProps {
 
 export default function GalleryGrid({gallery, onClick, enable}: GalleryBoxProps) {
     return <div className="
-        mt-8
-        grid grid-cols-4 md:grid-cols-5 gap-2
-        auto-rows-auto auto-cols-auto grid-flow-row
+        t-mt-8
+        t-grid t-grid-cols-4 md:t-grid-cols-5 t-gap-2
+        t-auto-rows-auto t-auto-cols-auto t-grid-flow-row
         ">
         {
             gallery?.items?.map(i => (

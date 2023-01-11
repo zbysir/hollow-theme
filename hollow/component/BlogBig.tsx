@@ -6,23 +6,23 @@ export default function BlogBig({blog}: { blog: Content }) {
     let link = articleRoute(blog)
     const name = blog.meta?.title || blog.name
 
-    return <div className="relative group">
+    return <div className="t-relative t-group">
         <div className="
-        relative
-        flex flex-col w-full
-        text-gray-900 dark:text-gray-100
-        py-2 px-2 md:py-6 md:px-2
-        text-center
-        bg-opacity-50
+        t-relative
+        t-flex t-flex-col t-w-full
+        t-text-neutral-900 dark:t-text-neutral-100
+        t-py-2 t-px-2 md:t-py-6 md:t-px-2
+        t-text-center
+        t-bg-opacity-50
     ">
-            <div className="leading-relaxed ">
-                <h1 className="text-xl xl:text-3xl font-bold" style={{lineHeight: '1.2'}}>
+            <div className="t-leading-relaxed ">
+                <h1 className="t-text-xl xl:t-text-3xl t-font-bold" style={{lineHeight: '1.2'}}>
                     <Link href={link}>
                         {name}
-                        {/*<p className="text-base	text-gray-500 mt-2 opacity-0 hover:opacity-50">{blog.meta.desc}</p>*/}
+                        {/*<p className="text-base	text-neutral-500 mt-2 opacity-0 hover:opacity-50">{blog.meta.desc}</p>*/}
                     </Link>
                 </h1>
-                <p className="pt-2 text-sm font-medium dark:text-gray-300 text-gray-700">
+                <p className="t-pt-2 t-text-sm t-font-medium dark:t-text-neutral-300 t-text-neutral-700">
                     {
                         blog.meta?.featured ? <span>（置顶）</span> : null
                     }
@@ -35,14 +35,14 @@ export default function BlogBig({blog}: { blog: Content }) {
 
         {
             blog.meta?.img ? <div
-                className="w-full h-full absolute inset-0 z-0
-            bg-gray-100 dark:bg-gray-800
-            rounded-lg
-            shadow-md
-            group-hover:opacity-50 opacity-0 transition-opacity duration-500"
+                className="t-w-full t-h-full t-absolute t-inset-0 t-z-0
+            t-bg-neutral-100 dark:t-bg-neutral-800
+            t-rounded-lg
+            t-shadow-md
+            group-hover:t-opacity-50 t-opacity-0 t-transition-opacity t-duration-500"
             >
                 {
-                    <img className="object-cover w-full h-full rounded-lg max-h-64 shadow-md sm:max-h-96"
+                    <img className="t-object-cover t-w-full t-h-full t-rounded-lg t-max-h-64 t-shadow-md sm:t-max-h-96"
                          src={blog.meta?.img}/>
                 }
 

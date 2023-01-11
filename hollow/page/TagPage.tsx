@@ -59,13 +59,13 @@ export default function TagPage(props: Props) {
         return b.date - a.date
     })
 
-    return <div className="w-full px-5 py-6 max-w-6xl mx-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-8 ">
-        <div className="flex flex-wrap space-x-3 justify-center -mb-3">
+    return <div className="t-w-full t-px-5 t-py-6 t-max-w-6xl t-mx-auto t-space-y-5 sm:t-py-8 md:t-py-12 sm:t-space-y-8 md:t-space-y-8 ">
+        <div className="t-flex t-flex-wrap t-space-x-3 t-justify-center t--mb-3">
             {
                 tags.map(i => (
-                    <Link href={"/tags" + (i === props.selectedTag ? '' : ('/' + i))} className={"mb-3"}>
+                    <Link href={"/tags" + (i === props.selectedTag ? '' : ('/' + i))} className={"t-mb-3"}>
                         <div
-                            className={`${i === props.selectedTag ? 'bg-indigo-600' : 'bg-gray-500'} flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium text-white inline-block`}>
+                            className={`${i === props.selectedTag ? 't-bg-indigo-600' : 't-bg-neutral-500'} t-flex t-items-center t-px-3 t-py-1.5 t-leading-none t-rounded-full t-text-xs t-font-medium t-text-white t-inline-block`}>
                             <span>{i}</span>
                         </div>
                     </Link>
@@ -73,12 +73,12 @@ export default function TagPage(props: Props) {
             }
         </div>
 
-        <div className="flex flex-col space-y-5">
+        <div className="t-flex t-flex-col t-space-y-5">
             {
                 byTimes.map(i => (
                     <div>
-                        <h3 className="py-3 text-4xl xl:text-5xl font-bold dark:text-white text-center">{i.date}</h3>
-                        <div className="flex flex-col space-y-4 py-3">
+                        <h3 className="t-py-3 t-text-4xl xl:t-text-5xl t-font-bold dark:t-text-white t-text-center">{i.date}</h3>
+                        <div className="t-flex t-flex-col t-space-y-4 t-py-3">
                             {i.blogs.map(i => <BlogXS blog={i}></BlogXS>)}
                         </div>
                     </div>

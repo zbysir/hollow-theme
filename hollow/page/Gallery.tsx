@@ -29,8 +29,8 @@ let params = hollow.getConfig() || defaultConfig;
 let gallery: Gallery = params?.gallery
 
 export default function Gallery() {
-    return <div className="container mx-auto max-w-2xl py-6 px-5 md:py-12">
-        <h3 className="text-3xl xl:text-5xl font-bold dark:text-white text-center">{gallery.title}</h3>
+    return <div className="t-container t-mx-auto t-max-w-2xl t-py-6 t-px-5 md:t-py-12">
+        <h3 className="t-text-3xl xl:t-text-5xl t-font-bold dark:t-text-white t-text-center">{gallery.title}</h3>
 
         <div
             id="gallery-box"

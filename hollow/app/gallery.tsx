@@ -27,38 +27,38 @@ export default function Gallery({gallery}: GalleryBoxProps) {
             setCurrItem(item)
         }}></GalleryGrid>
 
-        <div className={`fixed top-0 left-0 right-0 w-full h-full z-100
-        transition-opacity
-        ${visible ? 'visible' : 'invisible'}
-        ${currItem ? 'opacity-100' : 'opacity-0'}
+        <div className={`t-fixed t-top-0 t-left-0 t-right-0 t-w-full t-h-full t-z-100
+        t-transition-opacity
+        ${visible ? 't-visible' : 't-invisible'}
+        ${currItem ? 't-opacity-100' : 't-opacity-0'}
         `}>
-            <div className={"absolute top-0 left-0 w-full h-full flex flex-col"}
+            <div className={"t-absolute t-top-0 t-left-0 t-w-full t-h-full t-flex t-flex-col"}
                  onClick={() => {
                      setCurrItem(null)
                  }}
             >
                 <div
-                    className={"mx-6 md:mx-12 mt-6 md:mt-12 flex flex-1 max-h-full items-center justify-center shrink-0 overflow-hidden"}
+                    className={"t-mx-6 md:t-mx-12 t-mt-6 md:t-mt-12 t-flex t-flex-1 t-max-h-full t-items-center t-justify-center t-shrink-0 overflow-hidden"}
                 >
 
                     <img
                         onClick={(e) => {
                             e.stopPropagation()
                         }}
-                        className={`object-contain rounded-lg max-h-full shadow-md`}
+                        className={`t-object-contain t-rounded-lg t-max-h-full t-shadow-md`}
                         src={currItem?.url || currItem?.thumb || 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='}
                         alt={currItem?.text}/>
                 </div>
-                <div className={`h-12 shrink-0 flex text-center items-center justify-center
-                    text-white
-                    px-3
+                <div className={`t-h-12 t-shrink-0 t-flex t-text-center t-items-center t-justify-center
+                    t-text-white
+                    t-px-3
                     `}>
-                    <span className={`whitespace-pre-wrap`}>{currItem?.text}</span>
+                    <span className={`t-whitespace-pre-wrap`}>{currItem?.text}</span>
                 </div>
 
             </div>
-            <div className={`absolute top-0 left-0 w-full h-full bg-black opacity-75 z-[-1]
-            flex items-center justify-center text-white`}>
+            <div className={`t-absolute t-top-0 t-left-0 t-w-full t-h-full t-bg-black t-opacity-75 t-z-[-1]
+            t-flex t-items-center t-justify-center t-text-white`}>
                 Loading...
             </div>
         </div>

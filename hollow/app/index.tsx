@@ -23,7 +23,7 @@ window.onload = function () {
                 // https://atomiks.github.io/tippyjs/
                 // @ts-ignore
                 tippy(i, {
-                    content: `<div class="prose prose-sm p-2">${a.content}</div>`,
+                    content: `<div class="t-prose t-prose-sm t-p-2">${a.content}</div>`,
                     interactive: true,
                     allowHTML: true,
                     theme: 'light',

@@ -20,7 +20,7 @@ if (contents.length == 0) {
 export default function Home() {
     return <section>
         <Container>
-            <div className="space-y-4">
+            <div className="t-space-y-4">
                 {
                     contents.map(i => (<BlogBig blog={i}></BlogBig>))
                 }
