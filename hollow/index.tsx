@@ -48,7 +48,7 @@ export default {
                     let content = b.getContent()
                     // 不能这样写，因为在 golang 中没有对应的 content 字段，不能赋值成功
                     // b.content = content
-                    return <Index {...global} activeHeader="Blog">
+                    return <Index {...global} activeHeader="Home">
                         <BlogDetail {...b} content={content}></BlogDetail>
                     </Index>
                 }
