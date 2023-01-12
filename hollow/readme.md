@@ -33,9 +33,19 @@ theme_config:
 ```
 
 ## 代码结构
-- index.tsx：网站页面代码生成入口，不参与编译（但同时也配置到了编译入口是因为需要使用到 watch 特性，当模板文件更改时也能生成 tailwindcss）
 - main.css：生成 tailwindcss
 - app/index.tsx：前端 js 代码编译入口，编译生成 app.js
+
+## 开发原则
+为什么不使用 css module？
+
+我认为 tailwind 和 css module 天生是不匹配的，写一串 class 已经很冗长了，如果在加上 css module，那么代码会变得更难写。就像这样：
+```jsx
+<div className={`${style['mt-0']} ${style['pl-0']}`}/>
+
+// 就算用上工具类，也不见得好写到哪去。
+<div className={clsx(style['mt-0'], style['pl-0'])}/>
+```
 
 ## 预览主题
 ```bash

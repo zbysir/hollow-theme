@@ -23,10 +23,10 @@ window.onload = function () {
                 // https://atomiks.github.io/tippyjs/
                 // @ts-ignore
                 tippy(i, {
-                    content: `<div class="t-prose t-prose-sm t-p-2">${a.content}</div>`,
+                    content: `<div class="t-prose t-dark:t-prose-invert t-prose-sm t-p-2">${a.content}</div>`,
                     interactive: true,
                     allowHTML: true,
-                    theme: 'light',
+                    theme: 'lightx',
                     appendTo: () => document.body, // 移动到 body 更好做样式
                 });
             }

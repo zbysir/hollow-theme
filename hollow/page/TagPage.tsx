@@ -4,6 +4,7 @@ import BlogXS from "../component/BlogXS";
 import hollow, {Content} from "@bysir/hollow"
 import {sortBlog} from "../util";
 import {defaultContents} from "../initial_data";
+import Tag from "../component/Tag";
 
 let contents = hollow.getContents('contents', {
     sort: sortBlog, page: 1, size: 20
@@ -64,10 +65,7 @@ export default function TagPage(props: Props) {
             {
                 tags.map(i => (
                     <Link href={"/tags" + (i === props.selectedTag ? '' : ('/' + i))} className={"t-mb-3"}>
-                        <div
-                            className={`${i === props.selectedTag ? 't-bg-indigo-600' : 't-bg-neutral-500'} t-flex t-items-center t-px-3 t-py-1.5 t-leading-none t-rounded-full t-text-xs t-font-medium t-text-white t-inline-block`}>
-                            <span>{i}</span>
-                        </div>
+                        <Tag text={i} active={i === props.selectedTag}></Tag>
                     </Link>
                 ))
             }

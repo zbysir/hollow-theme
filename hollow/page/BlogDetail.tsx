@@ -1,5 +1,6 @@
 import { dateFormat} from "../util";
 import {anchor} from "../util/serviceside";
+import Tag from "../component/Tag";
 
 interface Props {
     name: string,
@@ -20,16 +21,15 @@ export default function BlogDetail(props: Props) {
             prose-pre:t-text-xs
             prose-code:t-text-xs prose-code:t-px-2 prose-code:t-py-1
             t-max-w-2xl t-w-full">
-                <h2 className="t-inline-flex t-items-start t-space-x-1"> <span>{name}</span> {props.meta?.draft ? <span className="t-text-xs">[Draft]</span> : null}</h2>
-                <div className="t-flex t-flex-wrap t-space-x-3 t-mb-8">
-                    <div><span className="">{dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span></div>
+                <h2 className="t-inline-flex t-items-start t-space-x-1"><span>{name}</span> {props.meta?.draft ?
+                    <span className="t-text-xs">[Draft]</span> : null}</h2>
+                <div className="t-leading-snug	 t-flex t-flex-wrap t-space-x-3 t-mb-6">
+                    <div>
+                        <span className="">
+                        {dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span>
+                    </div>
                     {
-                        tags?.map(i => (
-                            <div
-                                className="t-bg-neutral-600 t-flex t-items-center t-px-3 t-py-1.5 t-leading-none t-rounded-full t-text-xs t-font-medium t-text-white t-inline-block">
-                                <span>{i}</span>
-                            </div>
-                        ))
+                        tags?.map(i => <Tag text={i}></Tag>)
                     }
                 </div>
 

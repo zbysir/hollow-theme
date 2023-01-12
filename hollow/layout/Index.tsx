@@ -39,32 +39,28 @@ function FontFamilyStyle({link, family, selector}) {
     </>
 }
 
-export default function Index(props: Props) {
-    let routerBase = params?.base || ''
+const cssAssets = ['/theme/main.css', '/prism/prism.css'].concat(params.assets?.filter(i => i.endsWith('.css')))
 
+const jsAssets = ['/prism/prism.js', '/theme/app/index.js',
+    "https://unpkg.com/@popperjs/core@2", "https://unpkg.com/tippy.js@6"].concat(params.assets?.filter(i => i.endsWith('.js')))
+
+export default function Index(props: Props) {
     return <html lang="zh">
     <head>
         <meta charSet="UTF-8"/>
         <meta name="viewport"
               content="width=device-width, initial-scale=1.0"/>
         <title>{props.title || 'UnTitled'}</title>
-        <link href={routerBase + '/main.css'}
-              rel="stylesheet"/>
-        <link href={routerBase + '/prism/prism.css'}
-              rel="stylesheet"/>
         {
             params?.fonts?.map((i => {
                 return <FontFamilyStyle {...i}></FontFamilyStyle>
             }))
         }
         {
-            params.assets?.filter(i => i.endsWith('.css')).map(i => <link href={i} rel="stylesheet"/>)
+            cssAssets.map(i => <link href={i} rel="stylesheet"/>)
         }
     </head>
     <body className="
-    t-bg-neutral-50 dark:t-bg-black
-    t-text-black
-    dark:t-text-white
     t-min-h-screen t-flex t-flex-col
     language-plain">
     <Header name={props.logo} active={props.activeHeader}></Header>
@@ -80,12 +76,8 @@ export default function Index(props: Props) {
         {props.time}
     </div>
 
-    <script src={routerBase + '/prism/prism.js'}></script>
-    <script src={routerBase + '/app/index.js'}></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
     {
-        params.assets?.filter(i => i.endsWith('.js')).map(i => <script src={i}></script>)
+        jsAssets.map(i => <script src={i}></script>)
     }
 
     </body>

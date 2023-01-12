@@ -19,7 +19,7 @@ export default function MarkDown(props: Props) {
     }
 
     return <Container>
-        <div className="t-prose dark:t-prose-invert t-min-w-full prose-p:t-my-1 prose-ul:t-my-1"
+        <div className="t-prose t-min-w-full prose-p:t-my-1 prose-ul:t-my-1"
              dangerouslySetInnerHTML={{__html: content}}></div>
     </Container>
 

@@ -1,6 +1,7 @@
 import Link from "./Link";
 import {articleRoute, dateFormat} from "../util";
 import {Content} from "@bysir/hollow";
+import Tag from "./Tag";
 
 
 export default function BlogXS({blog}: { blog: Content }) {
@@ -34,10 +35,7 @@ export default function BlogXS({blog}: { blog: Content }) {
 
                             return tags?.map(i => (
                                 <Link href={"/tags/" + i}>
-                                    <div
-                                        className="t-bg-neutral-500 t-items-center t-px-1 t-py-1 t-leading-none t-rounded-full t-text-xs t-font-medium t-text-white ">
-                                        <span>{i}</span>
-                                    </div>
+                                    <Tag text={i}/>
                                 </Link>
                             ))
                         })()

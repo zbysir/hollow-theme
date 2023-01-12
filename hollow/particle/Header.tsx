@@ -19,8 +19,8 @@ export default function Header(props: { name: string, active: string }) {
     >
         {/* copy from https://devdojo.com/tails/v1/app#_ */}
         <section className="t-w-full
-        t-bg-white dark:t-bg-neutral-900
-        t-border-b t-border-neutral-200 dark:t-border-neutral-800">
+        t-bg-neutral/50
+        t-border-b t-border-base-200">
             <div
                 className="
                 t-container t-flex t-flex-col t-flex-wrap t-items-center
@@ -33,7 +33,7 @@ export default function Header(props: { name: string, active: string }) {
                         <Link href="/"
                               className="t-flex t-font-medium ">
                             <span
-                              className={`t-text-xl ${thin ? 't-font-extralight' : 't-font-black'} t-leading-none t-text-neutral-900 dark:t-text-neutral-100 t-select-none`}>
+                              className={`t-text-xl ${thin ? 't-font-extralight' : 't-font-black'} t-leading-none t-select-none`}>
                                 {props.name}
                             </span>
                         </Link>
@@ -43,12 +43,12 @@ export default function Header(props: { name: string, active: string }) {
                     </div>
 
                     <div className="md:t-py-3">
-                        <div className="md:t-pl-4 md:t-ml-4 md:t-border-l md:t-border-neutral-200 md:dark:t-border-neutral-700 t-h-full"></div>
+                        <div className="md:t-pl-4 md:t-ml-4 md:t-border-l md:t-border-neutral t-h-full"></div>
                     </div>
                     <nav
                       className={`t-flex t-space-x-2 t-overflow-x-auto t-items-center t-text-lg
                         t-tracking-wide
-                        md:t-border-neutral-200
+                        md:t-border-neutral
                         ${thin ? 't-font-extralight' : 't-font-medium'}`}>
                         {
                             menus.map(i => (
