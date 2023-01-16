@@ -13,7 +13,6 @@ export default function BlogBig({blog}: { blog: Content }) {
         t-text-neutral-900 dark:t-text-neutral-100
         t-py-2 t-px-2 md:t-py-6 md:t-px-2
         t-text-center
-        t-bg-opacity-50
     ">
             <div className="t-leading-relaxed ">
                 <h1 className="t-text-xl xl:t-text-3xl t-font-bold" style={{lineHeight: '1.2'}}>

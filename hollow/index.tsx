@@ -1,14 +1,15 @@
 import Index from "./layout/Index"
-
-import Home from "./page/Home";
-import BlogDetail from "./page/BlogDetail";
-import TagPage from "./page/TagPage";
-
 import hollow, {getContents} from "@bysir/hollow"
-import MarkDown from "./page/Md";
+
+// 懒加载文件
+const Home = (args) => require("./page/Home").default()
+const BlogDetail = (args) => require("./page/BlogDetail").default(args);
+const TagPage = (args) => require("./page/TagPage").default(args);
+const MarkDown = (args) => require("./page/Md").default(args);
+const Gallery = (args) => require("./page/Gallery").default();
+
 import {articleRoute} from "./util";
 import {defaultConfig, defaultContents} from "./initial_data";
-import Gallery from "./page/Gallery";
 
 let contents = getContents('contents').list;
 if (contents.length == 0) {

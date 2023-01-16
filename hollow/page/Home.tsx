@@ -5,19 +5,20 @@ import {getContents} from "@bysir/hollow"
 import {sortBlog} from "../util";
 import {defaultContents} from "../initial_data";
 
-let contents = getContents('contents',
-    {
-        sort: sortBlog,
-        page: 1,
-        size: 20,
-        filter: i => (i.meta?.draft !== true),
-    }
-).list
-
-if (contents.length == 0) {
-    contents = defaultContents
-}
 export default function Home() {
+    let contents = getContents('contents',
+        {
+            sort: sortBlog,
+            page: 1,
+            size: 20,
+            filter: i => (i.meta?.draft !== true),
+        }
+    ).list
+
+    if (contents.length == 0) {
+        contents = defaultContents
+    }
+
     return <section>
         <Container>
             <div className="t-space-y-4">

@@ -6,20 +6,21 @@ import {sortBlog} from "../util";
 import {defaultContents} from "../initial_data";
 import Tag from "../component/Tag";
 
-let contents = hollow.getContents('contents', {
-    sort: sortBlog, page: 1, size: 20
-}).list;
-
-if (contents.length == 0) {
-    contents = defaultContents
-}
-
 interface Props {
     selectedTag?: string
 }
 
 // 显示所有博客的页面
 export default function TagPage(props: Props) {
+    let contents = hollow.getContents('contents', {
+        sort: sortBlog, page: 1, size: 20
+    }).list;
+
+    if (contents.length == 0) {
+        contents = defaultContents
+    }
+
+
     let tags = []
     contents.forEach(i => {
         let items = i.meta?.tags;
