@@ -26,7 +26,9 @@ let global = {
 
 let tags = []
 contents.forEach(i => {
-    tags = tags.concat(i.meta?.tags)
+    if (i.meta?.tags) {
+        tags = tags.concat(i.meta?.tags)
+    }
 })
 
 // @ts-ignore
@@ -36,64 +38,48 @@ export default {
     pages: [
         {
             path: '',
-            component: () => {
-                return <Index {...global} activeHeader="Home">
-                    <Home/>
-                </Index>
-            },
+            component: () => <Index {...global} activeHeader="Home">
+                <Home/>
+            </Index>,
         },
         ...contents.map(b => {
             return {
                 path: articleRoute(b),
-                component: () => {
-                    let content = b.getContent()
-                    // 不能这样写，因为在 golang 中没有对应的 content 字段，不能赋值成功
-                    // b.content = content
-                    return <Index {...global} activeHeader="Home">
-                        <BlogDetail {...b} content={content}></BlogDetail>
+                component: () =>
+                    <Index {...global} activeHeader="Home">
+                        <BlogDetail {...b} content={b.getContent()}></BlogDetail>
                     </Index>
-                }
             }
         }),
         {
             path: 'tags',
-            component: () => {
-                return <Index {...global} activeHeader="Tags">
-                    <TagPage></TagPage>
-                </Index>
-            }
+            component: () => <Index {...global} activeHeader="Tags">
+                <TagPage></TagPage>
+            </Index>
         },
         ...tags.map(tag => ({
             path: 'tags/' + tag,
-            component: () => {
-                return <Index {...global} activeHeader="Tags">
-                    <TagPage selectedTag={tag}></TagPage>
-                </Index>
-            }
+            component: () => <Index {...global} activeHeader="Tags">
+                <TagPage selectedTag={tag}></TagPage>
+            </Index>
         })),
         {
             path: 'links',
-            component: () => {
-                return <Index {...global} activeHeader="Links">
-                    <MarkDown filepath={params.links_page} md={params.links_page_md}></MarkDown>
-                </Index>
-            }
+            component: () => <Index {...global} activeHeader="Links">
+                <MarkDown filepath={params.links_page} md={params.links_page_md}></MarkDown>
+            </Index>
         },
         {
             path: 'about',
-            component: () => {
-                return <Index {...global} activeHeader="About">
-                    <MarkDown filepath={params.about_page} md={params.about_page_md}></MarkDown>
-                </Index>
-            }
+            component: () => <Index {...global} activeHeader="About">
+                <MarkDown filepath={params.about_page} md={params.about_page_md}></MarkDown>
+            </Index>
         },
         {
-          path:'gallery',
-            component: () => {
-                return <Index {...global} activeHeader="Gallery">
-                    <Gallery></Gallery>
-                </Index>
-            }
+            path: 'gallery',
+            component: () => <Index {...global} activeHeader="Gallery">
+                <Gallery></Gallery>
+            </Index>
         },
         {
             path: 'article.json',
