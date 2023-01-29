@@ -16,25 +16,25 @@ export default function About() {
     return <div>
         <section>
             <div
-                className="max-w-6xl mx-auto w-full
-                px-5 py-6 sm:py-8 md:py-12
-                space-y-8 md:space-y-12
-                dark:text-white
+                className="tw-max-w-6xl tw-mx-auto tw-w-full
+                tw-px-5 tw-py-6 sm:tw-py-8 md:tw-py-12
+                tw-space-y-8 md:tw-space-y-12
+                dark:tw-text-white
                 ">
                 {
                     about.map(i => (
                         <div>
                             <div className="  ">
-                                <h2 className="text-2xl xl:text-2xl font-bold">{i.title}</h2>
+                                <h2 className="tw-text-2xl xl:tw-text-2xl tw-font-bold">{i.title}</h2>
                             </div>
                             <div className="mt-3 md:mt-4">
-                                <p className="text-lg text-gray-700 dark:text-gray-300">{i.desc}</p>
+                                <p className="tw-text-lg tw-text-gray-700 dark:tw-text-gray-300">{i.desc}</p>
                             </div>
                             <div
                                 className="
-                                prose dark:prose-invert
-                                max-w-none prose-p:my-1 prose-ul:my-1 prose-ul:list-outside
-                                mt-3 md:mt-4"
+                                tw-prose dark:tw-prose-invert
+                                tw-max-w-none tw-prose-p:my-1 tw-prose-ul:my-1 tw-prose-ul:list-outside
+                                tw-mt-3 md:tw-mt-4"
                                 dangerouslySetInnerHTML={{__html: hollow.md(i.content)}}>
                             </div>
                         </div>

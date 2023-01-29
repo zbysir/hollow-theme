@@ -748,6 +748,11 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.1.0, postcss-value-parser@^
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
+postcss-variables-prefixer@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-variables-prefixer/-/postcss-variables-prefixer-1.2.0.tgz#c3b2f679e3dcbd78da10454e24993337844048fc"
+  integrity sha512-qN1WmxVF26pJkX7EF6Iufjdih5KaLfgb+VekTNG7pir9b4t3IDyoLGgIov3S9HgwX8xnu4oP4POXhikCebgPKg==
+
 postcss@^8.4.12:
   version "8.4.20"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.20.tgz#64c52f509644cecad8567e949f4081d98349dc56"

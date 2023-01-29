@@ -7,11 +7,10 @@ interface Props {
 import hollow from "@bysir/hollow"
 
 // 用来渲染 markdown
-export default function ArticlePage(props: Props) {
+export default function RawPage(props: Props) {
     const content = hollow.getContentDetail(props.filepath)
 
     return <Container>
-        <div className="tw-prose dark:tw-prose-invert" style={{maxWidth: '100%'}}
-             dangerouslySetInnerHTML={{__html: content.content}}></div>
+        <div dangerouslySetInnerHTML={{__html: content.content}}></div>
     </Container>
 }

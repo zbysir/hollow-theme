@@ -2,6 +2,7 @@ const esbuild = require("esbuild");
 const autoprefixer = require("autoprefixer");
 const tailwindcss = require('tailwindcss')
 const stylePlugin = require('esbuild-style-plugin')
+const variablesPrefixer = require('postcss-variables-prefixer')
 
 esbuild
   .build({
@@ -12,12 +13,19 @@ esbuild
     bundle: true,
     plugins: [
       stylePlugin({
-        postcss: {plugins: [tailwindcss, autoprefixer]},
+        postcss: {
+          plugins: [
+            tailwindcss,
+            autoprefixer,
+            // https://github.com/saadeghi/daisyui/issues/1543
+            variablesPrefixer({prefix: 'tw-'})
+          ]
+        },
       })
     ],
     external: ['@bysir/hollow'],
     metafile: true,
-    outdir: "statics",
+    outdir: "statics/theme",
     minify: true,
     sourcemap: true,
     treeShaking: true,

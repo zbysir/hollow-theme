@@ -1,60 +1,57 @@
 import Link from "../component/Link";
 
-export default function Header(props) {
+export default function Header(props: { name: string, active: string }) {
     const menus = [
         {href: '/docs', name: 'Docs'},
         {href: 'https://github.com/zbysir/hollow', name: 'GitHub'},
-        // {href: '/about', name: 'About'},
-        // {href: '/links', name: 'Links'},
-        // {href: '/gallery', name: 'Gallery'},
-    ]
+    ].map(i => ({
+            ...i,
+            active: i.name === props.active
+        }
+    ))
 
-    let thin = true
+    let thin = false
     return <div
     >
         {/* copy from https://devdojo.com/tails/v1/app#_ */}
-        <section className="w-full
-        dark:bg-gray-900 bg-white
-        border-b border-gray-200 dark:border-gray-800">
+        <section className="tw-w-full
+        tw-bg-white
+        tw-border-b tw-border-base-200">
             <div
                 className="
-                container flex flex-col flex-wrap
-                mx-auto md:flex-row max-w-6xl px-5 py-1">
-                <div className="relative flex flex-col md:flex-row max-w-full">
-                    <Link href="/" className="flex items-center pt-2 pb-1 md:pb-2 md:my-0 font-medium md:items-center inline-block">
-                        <span
-                            className={`mx-auto text-lg ${thin ? 'font-extralight' : 'font-black'}  text-gray-900 dark:text-gray-100 select-none`}> {props.name}
-                            {/*<span className="text-indigo-600"> .</span>*/}
-                        </span>
-                    </Link>
-                    <div className="md:py-3">
-                        <div
-                            className="md:pl-4 md:ml-4 md:border-l md:border-gray-200 md:dark:border-gray-700 h-full"></div>
+                tw-container tw-flex tw-flex-col tw-flex-wrap tw-items-center
+                tw-mx-auto md:tw-flex-row tw-max-w-6xl tw-px-5 tw-py-1">
+                <div className="tw-relative tw-flex tw-flex-col md:tw-flex-row tw-max-w-full">
+                    <div className="tw-flex tw-items-center tw-justify-center
+                     tw-pt-2 tw-pb-1 md:tw-pb-2 md:tw-my-0
+                    ">
+                        <Link href="/"
+                              className="tw-flex tw-font-medium ">
+                            <span
+                                className={`tw-text-xl ${thin ? 'tw-font-extralight' : 'tw-font-black'} tw-leading-none tw-select-none`}>
+                                {props.name}
+                            </span>
+                        </Link>
+                    </div>
+
+                    <div className="md:tw-py-3">
+                        <div className="md:tw-pl-4 md:tw-ml-4 md:tw-border-l md:tw-border-neutral tw-h-full"></div>
                     </div>
                     <nav
-                        className={`flex space-x-2 overflow-x-auto items-center text-lg
-                        tracking-wide
-                        md:border-gray-200
-                        ${thin ? 'font-extralight' : 'font-medium'}`}>
+                        className={`tw-flex tw-space-x-2 tw-overflow-x-auto tw-items-center tw-text-lg
+                        tw-tracking-wide
+                        md:tw-border-neutral
+                        ${thin ? 'tw-font-extralight' : 'tw-font-medium'}`}>
                         {
                             menus.map(i => (
-                                <Link href={i.href} className="p-2 transition duration-150
-                                hover:dark:text-gray-200
-                                hover:text-gray-800">{i.name}</Link>
+                                <Link
+                                    href={i.href}
+                                    className={`tw-p-2 tw-transition tw-duration-150
+                                        ${i.active? "tw-opacity-100": "tw-opacity-75 hover:tw-opacity-100"}
+                                `}>{i.name}</Link>
                             ))
                         }
                     </nav>
-                </div>
-
-                <div className="inline-flex items-center space-x-6 lg:justify-end">
-                    {/*<a href="#"*/}
-                    {/*   className="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">*/}
-                    {/*  Sign in*/}
-                    {/*</a>*/}
-                    {/*<Link href="/"*/}
-                    {/*   className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">*/}
-                    {/*    Sign up*/}
-                    {/*</Link>*/}
                 </div>
             </div>
         </section>

@@ -1,13 +1,12 @@
-import hollow, {Article, getArticles} from "@bysir/hollow"
-import {sortBlog} from "../utilx";
+import {Content} from "@bysir/hollow";
 
-interface Menu extends Article {
+interface Menu extends Content {
     link: string
     children?: any
 }
 
 interface Props {
-    activityMenu: Menu
+    activityMenuLink: string
     menu: Menu[]
 }
 
@@ -20,14 +19,14 @@ export default function Menu(props: Props) {
             return <div>
                     {
                         i.is_dir ?
-                            <div className="text-gray-400 my-4">{name}</div> :
-                            <div className={`${i.link === props.activityMenu.link ? 'text-red-700' : ''}`}>
+                            <div className="tw-text-gray-400 tw-my-4">{name}</div> :
+                            <div className={`${i.link === props.activityMenuLink ? 'tw-text-primary' : ''}`}>
                                 <a href={i.link}>{name}</a>
                             </div>
                     }
 
                     <div className="pl-0">
-                        <Menu activityMenu={props.activityMenu} menu={i.children}></Menu>
+                        <Menu activityMenuLink={props.activityMenuLink} menu={i.children}></Menu>
                     </div>
 
                 </div>

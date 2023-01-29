@@ -7,6 +7,7 @@ import {articleRoute, sortBlog} from "./utilx";
 import Menu from "./particle/Menu";
 import ArticlePage from "./page/Md";
 import {defaultConfig, defaultContents} from "./initial_data";
+import RawPage from "./page/Raw";
 
 let params = hollow.getConfig() || defaultConfig;
 
@@ -60,7 +61,7 @@ if (params?.home_page) {
         path: '',
         component() {
             return <Index {...global}>
-                <ArticlePage filepath={params?.home_page}></ArticlePage>
+                <RawPage filepath={params?.home_page}></RawPage>
             </Index>
         }
     }
@@ -79,7 +80,7 @@ if (params?.home_page) {
 
             return <Index {...global}>
                 <BlogDetail {...first} content={content} menu={
-                    <Menu activityMenu={{link: ''}} menu={articles.list.map(appendLink)}></Menu>
+                    <Menu activityMenuLink={''} menu={articles.list.map(appendLink)}></Menu>
                 }></BlogDetail>
             </Index>
         }
@@ -112,9 +113,7 @@ export default {
                     }
                     return <Index {...global}>
                         <BlogDetail {...b} content={content} menu={
-                            <Menu activityMenu={{
-                                link: path,
-                            }} menu={articles.list.map(appendLink)}></Menu>
+                            <Menu activityMenuLink={path} menu={articles.list.map(appendLink)}></Menu>
                         }></BlogDetail>
                     </Index>
                 }
