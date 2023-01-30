@@ -111,7 +111,7 @@ export default {
                             children: b.children.map(appendLink)
                         }
                     }
-                    return <Index {...global}>
+                    return <Index {...global} activeHeader={"Docs"}>
                         <BlogDetail {...b} content={content} menu={
                             <Menu activityMenuLink={path} menu={articles.list.map(appendLink)}></Menu>
                         }></BlogDetail>

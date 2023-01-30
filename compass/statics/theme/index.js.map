@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../frontside/index.js"],
+  "sourcesContent": ["document.addEventListener('alpine:init', () => {\n  Alpine.store('isOpen', false)\n})"],
+  "mappings": "MAAA,SAAS,iBAAiB,cAAe,IAAM,CAC7C,OAAO,MAAM,SAAU,EAAK,CAC9B,CAAC",
+  "names": []
+}

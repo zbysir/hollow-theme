@@ -41,8 +41,8 @@ function FontFamilyStyle({link, family, selector}) {
 
 const cssAssets = ['/theme/main.css', '/prism/prism.css'].concat(params.assets?.filter(i => i.endsWith('.css')))
 
-const jsAssets = ['/prism/prism.js', '/theme/app/index.js',
-    "https://unpkg.com/@popperjs/core@2", "https://unpkg.com/tippy.js@6"].concat(params.assets?.filter(i => i.endsWith('.js')))
+const jsAssets = ['/prism/prism.js', '/theme/index.js',
+    "https://unpkg.com/@popperjs/core@2", "https://unpkg.com/tippy.js@6","https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"].concat(params.assets?.filter(i => i.endsWith('.js')))
 
 export default function Index(props: Props) {
     return <html lang="zh">
@@ -78,6 +78,7 @@ export default function Index(props: Props) {
     {
         jsAssets.map(i => <script src={i}></script>)
     }
+
 
     </body>
     </html>

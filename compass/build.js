@@ -6,10 +6,11 @@ const variablesPrefixer = require('postcss-variables-prefixer')
 
 esbuild
   .build({
-    entryPoints: [
+    entryPoints: {
       // "app.css" 用于生成静态网页和前端 react 组件所有需要的 css
-      "main.css",
-    ],
+      "main": "main.css",
+      "index": "frontside/index.js",
+    },
     bundle: true,
     plugins: [
       stylePlugin({
