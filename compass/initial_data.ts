@@ -9,7 +9,11 @@ export const defaultContents: Content[] =
     [{
         name: "Demo",
         getContent: () => {
-            return "<p>这篇文章在你新增任意文章后就会消失。</p>"
+            return `<h1>开始使用</h1>
+<h2>安装</h2>
+<p>推荐使用 Docker</p>
+<h1>疑难杂症</h1>
+<p>这篇文章在你新增任意文章后就会消失。</p>`
         },
         meta: {
             tags: ["demo", "hello"],

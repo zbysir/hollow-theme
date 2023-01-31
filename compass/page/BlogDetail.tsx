@@ -44,7 +44,7 @@ export default function BlogDetail(props: Content & {menu: any}) {
                                 <button
                                     x-on:click="$store.isOpen = !isOpen"
                                     type="button"
-                                    className="tw-rounded-md tw-text-gray-300 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-white">
+                                    className="tw-rounded-md hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-white">
                                     <span className="tw-sr-only">Close panel</span>
                                     <svg className="tw-h-6 tw-w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -56,7 +56,7 @@ export default function BlogDetail(props: Content & {menu: any}) {
 
                             <div
                                 x-on:click__outside="$store.isOpen = false"
-                                className="tw-flex tw-h-full tw-flex-col tw-overflow-y-scroll tw-bg-white tw-py-6 tw-shadow-xl">
+                                className="tw-flex tw-h-full tw-flex-col tw-overflow-y-scroll tw-bg-base-100 tw-py-6 tw-shadow-xl">
 
                                 <div className="tw-relative tw-mt-6 tw-flex-1 tw-px-4 sm:tw-px-6">
                                     <div className="tw-w-60">
@@ -75,25 +75,10 @@ export default function BlogDetail(props: Content & {menu: any}) {
                 {props.menu}
             </div>
             <div className="tw-flex-1 tw-w-[0px]">
-                <div className="tw-prose dark:tw-prose-invert tw-prose-img:rounded-lg tw-max-w-2xl" dangerouslySetInnerHTML={{__html: props.content}}>
-                    {/*<h1> {name} </h1>*/}
-                    {/*<div className="tw-flex tw-flex-wrap tw-space-x-3 tw-mb-8">*/}
-                    {/*    {props.meta?.date ?*/}
-                    {/*        <div><span className="">{dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span>*/}
-                    {/*        </div> :*/}
-                    {/*        null*/}
-                    {/*    }*/}
-                    {/*    {*/}
-                    {/*        tags?.map(i => (*/}
-                    {/*            <div*/}
-                    {/*                className="tw-flex tw-items-center tw-text-gray-400">*/}
-                    {/*                <span>#{i}</span>*/}
-                    {/*            </div>*/}
-                    {/*        ))*/}
-                    {/*    }*/}
-                    {/*</div>*/}
-
-                    <div ></div>
+                <h1 className="tw-text-4xl tw-font-bold tw-mb-6"> {name} </h1>
+                <div className="tw-prose prose-img:rounded-lg
+                prose-h1:tw-text-3xl
+                tw-max-w-2xl" dangerouslySetInnerHTML={{__html: props.content}}>
                 </div>
 
             </div>

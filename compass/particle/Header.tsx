@@ -30,18 +30,16 @@ export default function Header(props: { name: string, active: string }) {
     >
         {/* copy from https://devdojo.com/tails/v1/app#_ */}
         <section className="tw-w-full
-        tw-bg-white
+        tw-bg-neutral
         tw-border-b tw-border-base-200">
             <div
                 className="
-                tw-container tw-flex tw-flex-col tw-flex-wrap tw-items-center
-                tw-mx-auto md:tw-flex-row tw-max-w-6xl tw-px-5 tw-py-1">
-                <div className="tw-relative tw-flex tw-flex-col md:tw-flex-row tw-max-w-full">
-                    <div className="tw-flex tw-items-center tw-justify-center
-                     tw-pt-2 tw-pb-1 md:tw-pb-2 md:tw-my-0
-                    ">
+                tw-container tw-flex tw-flex-wrap
+                tw-mx-auto tw-max-w-6xl tw-px-5 tw-py-1">
+                <div className="tw-relative tw-flex tw-max-w-full tw-items-center">
+                    <div className="">
                         <Link href="/"
-                              className="tw-flex tw-font-medium ">
+                              className="tw-font-medium tw-text-primary">
                             <span
                                 className={`tw-text-xl ${thin ? 'tw-font-extralight' : 'tw-font-black'} tw-leading-none tw-select-none`}>
                                 {props.name}
@@ -49,13 +47,10 @@ export default function Header(props: { name: string, active: string }) {
                         </Link>
                     </div>
 
-                    <div className="md:tw-py-3">
-                        <div className="md:tw-pl-4 md:tw-ml-4 md:tw-border-l md:tw-border-neutral tw-h-full"></div>
-                    </div>
+                    <div className="tw-ml-3 tw-border-l tw-border-base-200 tw-h-1/2"></div>
                     <nav
-                        className={`tw-flex tw-overflow-x-auto tw-items-center tw-text-lg
+                        className={`tw-ml-1 tw-flex tw-overflow-x-auto tw-items-center tw-text-lg
                         tw-tracking-wide
-                        md:tw-border-neutral
                         ${thin ? 'tw-font-extralight' : 'tw-font-medium'}`}>
                         {
                             menus.map(i => (
