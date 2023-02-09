@@ -1,4 +1,5 @@
 import Link from "../component/Link";
+import Container from "../component/Container";
 
 export default function Header(props: { name: string, active: string }) {
     const menus = [
@@ -26,30 +27,36 @@ export default function Header(props: { name: string, active: string }) {
     ))
 
     let thin = false
-    return <div
-    >
-        {/* copy from https://devdojo.com/tails/v1/app#_ */}
-        <section className="tw-w-full
-        tw-bg-neutral
-        tw-border-b tw-border-base-200">
-            <div
-                className="
-                tw-container tw-flex tw-flex-wrap
-                tw-mx-auto tw-max-w-6xl tw-px-5 tw-py-1">
-                <div className="tw-relative tw-flex tw-max-w-full tw-items-center">
-                    <div className="">
-                        <Link href="/"
-                              className="tw-font-medium tw-text-primary">
+    // {/* copy from https://devdojo.com/tails/v1/app#_ */}
+    return <section
+        x-data
+        x-show="$store.showHeader"
+        x-transition:enter="tw-transform tw-transition tw-ease-in-out tw-duration-500 sm:tw-duration-700"
+        x-transition:enter-start="-tw-translate-y-full"
+        x-transition:enter-end="tw-translate-y-0"
+        x-transition:leave="tw-transform tw-transition tw-ease-in-out tw-duration-500 sm:tw-duration-700"
+        x-transition:leave-start="tw-translate-y-0"
+        x-transition:leave-end="-tw-translate-y-full"
+        className="tw-w-full
+                tw-fixed
+                tw-bg-neutral
+                tw-border-b tw-border-base-200
+                tw-z-10">
+        <Container>
+            <div className="tw-relative tw-flex tw-max-w-full tw-items-center tw-h-[60px]">
+                <div className="">
+                    <Link href="/"
+                          className="tw-p-2 tw-font-medium tw-text-primary -tw-ml-2">
                             <span
                                 className={`tw-text-xl ${thin ? 'tw-font-extralight' : 'tw-font-black'} tw-leading-none tw-select-none`}>
                                 {props.name}
                             </span>
-                        </Link>
-                    </div>
+                    </Link>
+                </div>
 
-                    <div className="tw-ml-3 tw-border-l tw-border-base-200 tw-h-1/2"></div>
-                    <nav
-                        className={`tw-ml-1 tw-flex tw-overflow-x-auto tw-items-center tw-text-lg
+                <div className="tw-ml-3 tw-border-l tw-border-base-200 tw-h-1/2"></div>
+                <nav
+                    className={`tw-ml-1 tw-flex tw-overflow-x-auto tw-items-center tw-text-lg
                         tw-tracking-wide
                         ${thin ? 'tw-font-extralight' : 'tw-font-medium'}`}>
                         {
@@ -61,9 +68,9 @@ export default function Header(props: { name: string, active: string }) {
                                 `}>{i.content || i.name}</Link>
                             ))
                         }
-                    </nav>
-                </div>
+                </nav>
             </div>
+        </Container>
         </section>
-    </div>
+
 }

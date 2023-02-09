@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../frontside/index.js"],
-  "sourcesContent": ["document.addEventListener('alpine:init', () => {\n  Alpine.store('isOpen', false)\n})"],
-  "mappings": "MAAA,SAAS,iBAAiB,cAAe,IAAM,CAC7C,OAAO,MAAM,SAAU,EAAK,CAC9B,CAAC",
-  "names": []
+  "sourcesContent": ["document.addEventListener('alpine:init', () => {\n  Alpine.store('isOpen', false)\n  Alpine.store('showHeader', true)\n\n  let currScrollY = window.scrollY\n  window.addEventListener('scroll', (event) => {\n    if (window.scrollY > currScrollY && window.scrollY > 60) {\n      // down\n      Alpine.store('showHeader', false)\n    } else {\n      Alpine.store('showHeader', true)\n    }\n    currScrollY = window.scrollY\n  });\n})"],
+  "mappings": "MAAA,SAAS,iBAAiB,cAAe,IAAM,CAC7C,OAAO,MAAM,SAAU,EAAK,EAC5B,OAAO,MAAM,aAAc,EAAI,EAE/B,IAAIA,EAAc,OAAO,QACzB,OAAO,iBAAiB,SAAWC,GAAU,CACvC,OAAO,QAAUD,GAAe,OAAO,QAAU,GAEnD,OAAO,MAAM,aAAc,EAAK,EAEhC,OAAO,MAAM,aAAc,EAAI,EAEjCA,EAAc,OAAO,OACvB,CAAC,CACH,CAAC",
+  "names": ["currScrollY", "event"]
 }

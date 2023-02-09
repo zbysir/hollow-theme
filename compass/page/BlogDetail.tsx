@@ -11,6 +11,7 @@ export default function BlogDetail(props: Content & {menu: any}) {
         {/* slide-overs */}
         {/*https://tailwindui.com/components/application-ui/overlays/slide-overs*/}
 
+        {/* menu for mobile */}
         <div x-show="$store.isOpen" x-cloak className="tw-relative tw-z-10" aria-labelledby="slide-over-title"
              role="dialog"
              aria-modal="true">
@@ -22,25 +23,25 @@ export default function BlogDetail(props: Content & {menu: any}) {
                 x-transition:leave="tw-ease-in-out tw-duration-500"
                 x-transition:leave-start="tw-opacity-100"
                 x-transition:leave-end="tw-opacity-0"
-                className="tw-fixed tw-inset-0 tw-bg-gray-500 tw-bg-opacity-75 tw-transition-opacity"></div>
+                className="tw-fixed tw-inset-0 tw-bg-gray-500 tw-bg-opacity-50 tw-transition-opacity"></div>
             <div className="tw-fixed tw-inset-0 tw-overflow-hidden">
                 <div className="tw-absolute tw-inset-0 tw-overflow-hidden">
                     <div
-                        className="tw-pointer-events-none tw-fixed tw-inset-y-0 tw-right-0 tw-flex tw-max-w-full tw-pl-10">
+                        className="tw-pointer-events-none tw-fixed tw-inset-y-0 tw-right-0 tw-flex tw-max-w-full tw-pr-20">
                         {/* Slide-over panel */}
                         <div
                             x-show="$store.isOpen"
                             x-transition:enter="tw-transform tw-transition tw-ease-in-out tw-duration-500 sm:tw-duration-700"
-                            x-transition:enter-start="tw-translate-x-full"
+                            x-transition:enter-start="-tw-translate-x-full"
                             x-transition:enter-end="tw-translate-x-0"
                             x-transition:leave="tw-transform tw-transition tw-ease-in-out tw-duration-500 sm:tw-duration-700"
                             x-transition:leave-start="tw-translate-x-0"
-                            x-transition:leave-end="tw-translate-x-full"
-                            className="tw-pointer-events-auto tw-relative tw-w-screen tw-max-w-md">
+                            x-transition:leave-end="-tw-translate-x-full"
+                            className="tw-pointer-events-auto tw-relative tw-w-screen">
 
                             {/* Close button */}
                             <div
-                                className="tw-absolute tw-top-0 tw-left-0 tw--ml-8 tw-flex tw-pt-4 tw-pr-2 sm:tw--ml-10 sm:tw-pr-4">
+                                className="tw-absolute tw-top-0 tw-right-0 tw--ml-8 tw-flex tw-pt-4 tw-pr-2 sm:tw--ml-10 sm:tw-pr-4">
                                 <button
                                     x-on:click="$store.isOpen = !isOpen"
                                     type="button"
@@ -71,20 +72,27 @@ export default function BlogDetail(props: Content & {menu: any}) {
         </div>
 
         <div className="tw-flex">
-            <div className="tw-w-60 tw-hidden md:tw-block">
-                {props.menu}
+            {/* menu for pc */}
+            <div className="tw-w-60 tw-hidden md:tw-block tw-pr-4 tw-relative">
+                <div className="tw-sticky tw-top-5">
+                    {props.menu}
+                </div>
             </div>
+
+            {/* content */}
             <div className="tw-flex-1 tw-w-[0px]">
                 <h1 className="tw-text-4xl tw-font-bold tw-mb-6"> {name} </h1>
                 <div className="tw-prose prose-img:rounded-lg
                 prose-h1:tw-text-3xl
                 tw-max-w-2xl" dangerouslySetInnerHTML={{__html: props.content}}>
                 </div>
-
             </div>
 
-            <div className="tw-w-60 tw-hidden md:tw-block">
-                <Toc items={props.toc}/>
+            {/* toc */}
+            <div className="tw-w-60 tw-hidden md:tw-block tw-pl-4 tw-relative">
+                <div className="tw-sticky tw-top-5">
+                    <Toc items={props.toc}/>
+                </div>
             </div>
         </div>
 

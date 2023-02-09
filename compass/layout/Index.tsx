@@ -64,7 +64,7 @@ export default function Index(props: Props) {
     tw-min-h-screen tw-flex tw-flex-col
     language-plain">
     <Header name={props.logo} active={props.activeHeader}></Header>
-    <div className="flex-1">
+    <div className="tw-pt-[60px]" >
         {
             props.children
         }
@@ -78,7 +78,6 @@ export default function Index(props: Props) {
     {
         jsAssets.map(i => <script src={i}></script>)
     }
-
 
     </body>
     </html>
