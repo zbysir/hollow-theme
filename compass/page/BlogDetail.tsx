@@ -1,10 +1,14 @@
-import {dateFormat} from "../utilx";
 import {Toc} from "../component/Toc";
 import {Content} from "@bysir/hollow";
+import {articleRoute} from "../util";
 
+interface Props extends Content {
+    menu: any
+    next?: Content
+    prev?: Content
+}
 
-export default function BlogDetail(props: Content & {menu: any}) {
-    let tags = props.meta?.tags
+export default function BlogDetail(props: Props) {
     let name = props.meta?.title || props.name
 
     return <div x-data className="tw-container tw-mx-auto tw-max-w-6xl tw-py-6 tw-px-5 md:tw-py-12">
@@ -85,6 +89,28 @@ export default function BlogDetail(props: Content & {menu: any}) {
                 <div className="tw-prose prose-img:rounded-lg
                 prose-h1:tw-text-3xl
                 tw-max-w-2xl" dangerouslySetInnerHTML={{__html: props.content}}>
+                </div>
+
+                <div className="tw-border-b tw-border-base-200 tw-my-6"></div>
+
+                <div className="tw-flex">
+                    {
+                        props.prev ? <a href={articleRoute(props.prev,"/docs/")} className="tw-group tw-w-1/2">
+                            <div className="tw-text-left ">
+                                <h3>上一篇</h3>
+                                <h3 className="tw-text-lg group-hover:tw-text-primary tw-transition-colors">« {props.prev?.meta?.title}</h3>
+                            </div>
+                        </a> : <div className="tw-w-1/2"></div>
+                    }
+                    {
+                        props.next ? <a href={articleRoute(props.next,"/docs/")} className="tw-group tw-w-1/2">
+                            <div className="tw-text-right tw-text-lg">
+                                <h3>下一篇</h3>
+                                <h3 className="tw-text-lg group-hover:tw-text-primary tw-transition-colors">{props.next?.meta?.title} »</h3>
+                            </div>
+                        </a> : <div className="tw-w-1/2"></div>
+                    }
+
                 </div>
             </div>
 

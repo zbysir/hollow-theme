@@ -3,7 +3,7 @@ import Index from "./layout/Index"
 import BlogDetail from "./page/BlogDetail";
 
 import hollow, {Content, getContents} from "@bysir/hollow"
-import {articleRoute, sortBlog} from "./utilx";
+import {articleRoute, sortBlog} from "./util";
 import Menu from "./particle/Menu";
 import ArticlePage from "./page/Md";
 import {defaultConfig, defaultContents} from "./initial_data";
@@ -65,7 +65,7 @@ if (params?.home_page) {
             </Index>
         }
     }
-} else if (articles.list[0]) {
+} else if (first) {
     homepage = {
         path: '',
         component: () => {
@@ -73,13 +73,13 @@ if (params?.home_page) {
             let appendLink = function (b: Content): any {
                 return {
                     ...b,
-                    link: (b === first ? '' : ('/docs/' + articleRoute(b))),
+                    link: (b === first ? '' : (articleRoute(b, "/docs/"))),
                     children: b.children.map(appendLink)
                 }
             }
 
             return <Index {...global}>
-                <BlogDetail {...first} content={content} menu={
+                <BlogDetail {...first} next={docs[1] || undefined} content={content} menu={
                     <Menu activityMenuLink={''} menu={articles.list.map(appendLink)}></Menu>
                 }></BlogDetail>
             </Index>
@@ -95,25 +95,34 @@ if (params?.home_page) {
     }
 }
 
+let appendLink = function (b: Content): any {
+    return {
+        ...b,
+        link: (b === first ? '/docs/' : articleRoute(b, "/docs/")),
+        children: b.children.map(appendLink)
+    }
+}
+const menu = articles.list.map(appendLink)
+
 export default {
     pages: [
         homepage,
-        ...docs.map(b => {
-            let path = '/docs/' + (b === first ? '' : articleRoute(b))
+        ...docs.map((b, idx) => {
+            let path = (b === first ? '/docs/' : articleRoute(b, "/docs/"))
             return {
                 path: path,
                 component: () => {
                     let content = b.getContent()
-                    let appendLink = function (b: Content): any {
-                        return {
-                            ...b,
-                            link: '/docs/' + (b === first ? '' : articleRoute(b)),
-                            children: b.children.map(appendLink)
-                        }
+
+                    let prev = docs[idx - 1] || undefined
+                    if (prev && prev == first) {
+                        // clear url for first doc
+                        prev = Object.assign(prev, {meta: {...prev.meta, slug: ''}})
                     }
                     return <Index {...global} activeHeader={"Docs"}>
-                        <BlogDetail {...b} content={content} menu={
-                            <Menu activityMenuLink={path} menu={articles.list.map(appendLink)}></Menu>
+                        <BlogDetail {...b} content={content}
+                                    next={docs[idx + 1] || undefined} prev={prev} menu={
+                            <Menu activityMenuLink={path} menu={menu}></Menu>
                         }></BlogDetail>
                     </Index>
                 }

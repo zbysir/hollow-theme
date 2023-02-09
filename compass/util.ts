@@ -7,11 +7,11 @@ export function sortBlog(a: Content, b: Content) {
     return a.meta?.sort < b.meta?.sort
 }
 
-export function articleRoute(b?: Content) {
+export function articleRoute(b?: Content, prefix: string = '') {
     if (!b) {
-        return ''
+        return prefix
     }
-    return (b.meta?.slug || b.name)
+    return prefix + (b.meta?.slug == undefined ? b.name : b.meta?.slug)
 }
 
 export function dateFormat(date, fmt,) {
