@@ -78,7 +78,7 @@ export default function BlogDetail(props: Props) {
         <div className="tw-flex">
             {/* menu for pc */}
             <div className="tw-w-60 tw-hidden md:tw-block tw-pr-4 tw-relative">
-                <div className="tw-sticky tw-top-5">
+                <div className="tw-sticky tw-top-0 tw-py-5 tw-max-h-screen tw-overflow-auto tw-overscroll-none">
                     {props.menu}
                 </div>
             </div>
@@ -104,7 +104,7 @@ export default function BlogDetail(props: Props) {
                     }
                     {
                         props.next ? <a href={articleRoute(props.next,"/docs/")} className="tw-group tw-w-1/2">
-                            <div className="tw-text-right tw-text-lg">
+                            <div className="tw-text-right">
                                 <h3>下一篇</h3>
                                 <h3 className="tw-text-lg group-hover:tw-text-primary tw-transition-colors">{props.next?.meta?.title} »</h3>
                             </div>
@@ -116,7 +116,7 @@ export default function BlogDetail(props: Props) {
 
             {/* toc */}
             <div className="tw-w-60 tw-hidden md:tw-block tw-pl-4 tw-relative">
-                <div className="tw-sticky tw-top-5">
+                <div className="tw-sticky tw-top-0 tw-py-5 tw-max-h-screen tw-overflow-auto tw-overscroll-none">
                     <Toc items={props.toc}/>
                 </div>
             </div>
