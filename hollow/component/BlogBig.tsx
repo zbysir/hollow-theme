@@ -15,7 +15,7 @@ export default function BlogBig({blog}: { blog: Content }) {
         t-text-center
     ">
             <div className="t-leading-relaxed ">
-                <h1 className="t-text-xl xl:t-text-3xl t-font-bold" style={{lineHeight: '1.2'}}>
+                <h1 className="t-text-2xl md:t-text-3xl  t-font-bold" style={{lineHeight: '1.2'}}>
                     <Link href={link}>
                         {name}
                         {/*<p className="text-base	text-neutral-500 mt-2 opacity-0 hover:opacity-50">{blog.meta.desc}</p>*/}

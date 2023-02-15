@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@bysir/hollow@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@bysir/hollow/-/hollow-1.0.8.tgz#db27cada92987a81391b01a58c34e32b13ea34b8"
-  integrity sha512-+0oljpVQ9xPW0VdlGCT1tM8kRqJsrTBS2Ox6ZDr5vjBp4ZPKKFjXlnH4lzUwojAOQwQrxGgctryXO3hZ5HH2lw==
+"@bysir/hollow@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@bysir/hollow/-/hollow-1.0.9.tgz#38d0b9dd62d6d1b1f24ebedddb8c8699b7960c38"
+  integrity sha512-0c2IxY9+LeTgMYsOr5wfHN2tisc89ptHoVzz/B/qzku3GXXU04cwAwPHK7VN9tfNB5Ng3xBbqQvY3UCv3fxflQ==
 
 "@esbuild/android-arm@0.15.10":
   version "0.15.10"
