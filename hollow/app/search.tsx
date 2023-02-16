@@ -15,7 +15,8 @@ export default function Search() {
             .then((data) => {
                 setFuse(new Fuse(data, {
                     keys: ['name', 'content'],
-                    includeScore: true
+                    includeScore: true,
+                    ignoreLocation: true, // https://fusejs.io/api/options.html#ignorelocation，默认只搜索前 60 个字符，使用 ignoreLocation 启用无限长度。
                 }))
             });
     }, [])
