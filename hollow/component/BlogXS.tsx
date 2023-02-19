@@ -25,7 +25,7 @@ export default function BlogXS({blog}: { blog: Content }) {
                         href={link} className={"t-text-neutral-500"}>{blog.meta.desc}</Link></p>
                 </div>
 
-                <div className="t-flex t-space-x-3">
+                <div className="t-flex t-space-x-2 t-flex-wrap">
                     {
                         (function () {
                             let tags = blog.meta?.tags

@@ -21,15 +21,21 @@ export default function TagPage(props: Props) {
     }
 
 
-    let tags = []
+    let tags = {}
     contents.forEach(i => {
         let items = i.meta?.tags;
         if (items) {
-            tags = tags.concat(items)
+            items.forEach(i => {
+                tags[i] = (tags[i] || 0) + 1
+            })
         }
     })
 
-    tags = Array.from(new Set(tags))
+    let tagArray = Array.from(new Set(Object.keys(tags)))
+    tagArray.sort(function (a, b) {
+        return tags[b] - tags[a]
+    })
+
     let showBlogs: Content[]
 
     if (props.selectedTag) {
@@ -64,7 +70,7 @@ export default function TagPage(props: Props) {
     return <div className="t-w-full t-px-5 t-py-6 t-max-w-6xl t-mx-auto t-space-y-5 sm:t-py-8 md:t-py-12 sm:t-space-y-8 md:t-space-y-8 ">
         <div className="t-flex t-flex-wrap t-space-x-3 t-justify-center t--mb-3">
             {
-                tags.map(i => (
+                tagArray.map(i => (
                     <Link href={"/tags" + (i === props.selectedTag ? '' : ('/' + i))} className={"t-mb-3"}>
                         <Tag text={i} active={i === props.selectedTag}></Tag>
                     </Link>
