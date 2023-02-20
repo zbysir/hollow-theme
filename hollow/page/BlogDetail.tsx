@@ -14,14 +14,14 @@ export default function BlogDetail(props: Content) {
             {/* content */}
             <div className="t-flex t-flex-1 t-justify-center t-max-w-full">
                 <div className="
-            t-prose dark:t-prose-invert
-            prose-h1:t-text-3xl
-            prose-h1:t-mt-4
-            prose-img:t-rounded-lg
-            prose-pre:t-text-xs
-            prose-code:t-text-xs prose-code:t-px-2 prose-code:t-py-1
-            t-max-w-2xl t-w-full
-            t-break-all">
+                    t-prose dark:t-prose-invert
+                    prose-h1:t-text-3xl
+                    prose-h1:t-mt-[0.89em]
+                    prose-img:t-rounded-lg
+                    prose-pre:t-text-xs
+                    prose-code:t-text-xs prose-code:t-px-2 prose-code:t-py-1
+                    t-max-w-2xl t-w-full
+                    t-break-all">
                     <h2 className="t-inline-flex t-items-start t-space-x-1"><span>{name}</span> {props.meta?.draft ?
                         <span className="t-text-xs">[Draft]</span> : null}</h2>
                     <div className="t-leading-snug t-flex t-flex-wrap t-space-x-3 t-mb-6">
