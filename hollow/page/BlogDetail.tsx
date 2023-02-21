@@ -21,7 +21,7 @@ export default function BlogDetail(props: Content) {
                     prose-pre:t-text-xs
                     prose-code:t-text-xs prose-code:t-px-2 prose-code:t-py-1
                     t-max-w-2xl t-w-full
-                    t-break-all">
+                    t-break-words">
                     <h2 className="t-inline-flex t-items-start t-space-x-1"><span>{name}</span> {props.meta?.draft ?
                         <span className="t-text-xs">[Draft]</span> : null}</h2>
                     <div className="t-leading-snug t-flex t-flex-wrap t-space-x-3 t-mb-6">
