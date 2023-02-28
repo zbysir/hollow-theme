@@ -11,7 +11,7 @@ export default function Home() {
             sort: sortBlog,
             page: 1,
             size: 20,
-            filter: i => (i.meta?.draft !== true),
+            filter: a => (a.meta?.draft !== true && a.meta?.export !== false),
         }
     ).list
 

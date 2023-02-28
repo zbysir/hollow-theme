@@ -13,7 +13,10 @@ interface Props {
 // 显示所有博客的页面
 export default function TagPage(props: Props) {
     let contents = hollow.getContents('contents', {
-        sort: sortBlog, page: 1, size: 20
+        sort: sortBlog,
+        page: 1,
+        size: 20,
+        filter: (a) => (a.meta?.export !== false)
     }).list;
 
     if (contents.length == 0) {

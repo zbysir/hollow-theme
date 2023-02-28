@@ -14,21 +14,17 @@ export default function BlogDetail(props: Content) {
             {/* content */}
             <div className="t-flex t-flex-1 t-justify-center t-max-w-full">
                 <div className="
-                    t-prose dark:t-prose-invert
+                    t-prose
                     prose-h1:t-text-3xl
-                    prose-h1:t-mt-[0.89em]
                     prose-img:t-rounded-lg
                     prose-pre:t-text-xs
                     prose-code:t-text-xs prose-code:t-px-2 prose-code:t-py-1
                     t-max-w-2xl t-w-full
                     t-break-words">
-                    <h2 className="t-inline-flex t-items-start t-space-x-1"><span>{name}</span> {props.meta?.draft ?
-                        <span className="t-text-xs">[Draft]</span> : null}</h2>
+                    <h1 className="t-inline-flex t-items-start t-space-x-1"><span>{name}</span> {props.meta?.draft ?
+                        <span className="t-text-xs">[Draft]</span> : null}</h1>
                     <div className="t-leading-snug t-flex t-flex-wrap t-space-x-3 t-mb-6">
-                        <div>
-                        <span className="">
-                        {dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span>
-                        </div>
+                        <div><span>{dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span></div>
                         {
                             tags?.map(i => <Tag text={i}></Tag>)
                         }
@@ -41,7 +37,7 @@ export default function BlogDetail(props: Content) {
             {/* toc */}
             {props.toc?.length ?<div className="t-w-72 t-hidden md:t-block t-pl-4 t-relative">
                 <div className="t-sticky t-top-0 t-py-5 t-max-h-screen t-overflow-auto t-overscroll-none">
-                    <Toc items={props.toc}/>
+                    <Toc items={props.toc} level={-1}/>
                 </div>
             </div>:null}
 

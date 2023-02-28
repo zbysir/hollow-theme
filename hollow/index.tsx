@@ -1,5 +1,7 @@
 import Index from "./layout/Index"
 import hollow, {getContents} from "@bysir/hollow"
+import {articleRoute} from "./util";
+import {defaultConfig, defaultContents} from "./initial_data";
 
 // 懒加载文件
 const Home = (args) => require("./page/Home").default()
@@ -8,10 +10,10 @@ const TagPage = (args) => require("./page/TagPage").default(args);
 const MarkDown = (args) => require("./page/Md").default(args);
 const Gallery = (args) => require("./page/Gallery").default();
 
-import {articleRoute} from "./util";
-import {defaultConfig, defaultContents} from "./initial_data";
-
-let contents = getContents('contents').list;
+let contents = getContents('contents', {
+        filter: (a) => (a.meta?.export !== false)
+    }
+).list;
 if (contents.length == 0) {
     contents = defaultContents
 }
