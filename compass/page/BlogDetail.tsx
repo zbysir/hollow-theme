@@ -86,10 +86,8 @@ export default function BlogDetail(props: Props) {
             {/* content */}
             <div className="tw-flex-1 tw-w-[0px]">
                 <h1 className="tw-text-4xl tw-font-bold tw-mb-6"> {name} </h1>
-                <div className="tw-prose prose-img:rounded-lg
-                prose-h1:tw-text-3xl
-                tw-max-w-2xl" dangerouslySetInnerHTML={{__html: props.content}}>
-                </div>
+                <div className="tw-prose prose-img:rounded-lg tw-max-w-2xl"
+                     dangerouslySetInnerHTML={{__html: props.content}}></div>
 
                 <div className="tw-border-b tw-border-base-200 tw-my-6"></div>
 
