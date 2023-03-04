@@ -37,7 +37,7 @@ export default function BlogDetail(props: Content) {
             {/* toc */}
             {props.toc?.length ?<div className="t-w-72 t-hidden md:t-block t-pl-4 t-relative">
                 <div className="t-sticky t-top-0 t-py-5 t-max-h-screen t-overflow-auto t-overscroll-none">
-                    <Toc items={props.toc} level={-1}/>
+                    <Toc items={props.toc}/>
                 </div>
             </div>:null}
 

@@ -26,12 +26,12 @@ let global = {
     footer_links: params?.footer_links,
 }
 
-let tags = []
-contents.forEach(i => {
+let tags = contents.reduce((acc, i) => {
     if (i.meta?.tags) {
-        tags = tags.concat(i.meta?.tags)
+        return acc.concat(i.meta?.tags)
     }
-})
+    return acc;
+}, []);
 
 // @ts-ignore
 tags = Array.from(new Set(tags));

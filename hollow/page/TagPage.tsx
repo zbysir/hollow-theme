@@ -23,7 +23,7 @@ export default function TagPage(props: Props) {
         contents = defaultContents
     }
 
-
+    // tags 数量统计
     let tags = {}
     contents.forEach(i => {
         let items = i.meta?.tags;
@@ -34,9 +34,14 @@ export default function TagPage(props: Props) {
         }
     })
 
-    let tagArray = Array.from(new Set(Object.keys(tags)))
+    // 去重并生成 tag 数组并根据数量排序
+    let tagArray = Array.from(new Set(Object.keys(tags))).map(i => ({
+        name: i,
+        count: tags[i],
+    }))
+
     tagArray.sort(function (a, b) {
-        return tags[b] - tags[a]
+        return b.count - a.count
     })
 
     let showBlogs: Content[]
@@ -73,9 +78,10 @@ export default function TagPage(props: Props) {
     return <div className="t-w-full t-px-5 t-py-6 t-max-w-6xl t-mx-auto t-space-y-5 sm:t-py-8 md:t-py-12 sm:t-space-y-8 md:t-space-y-8 ">
         <div className="t-flex t-flex-wrap t-space-x-3 t-justify-center t--mb-3">
             {
-                tagArray.map(i => (
-                    <Link href={"/tags" + (i === props.selectedTag ? '' : ('/' + i))} className={"t-mb-3"}>
-                        <Tag text={i} active={i === props.selectedTag}></Tag>
+                tagArray.map(tag => (
+                    <Link href={"/tags" + (tag.name === props.selectedTag ? '' : ('/' + tag.name))}
+                          className={"t-mb-3"}>
+                        <Tag text={tag.name} count={tag.count} active={tag.name === props.selectedTag}></Tag>
                     </Link>
                 ))
             }
