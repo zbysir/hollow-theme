@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* tippy */
+
 .tippy-box{
     background-color: hsl(var(--n));
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -10,4 +12,28 @@
 .tippy-arrow{
     /* copy from tailwind css [data-theme] */
     color:hsla(var(--b1) / var(--tw-bg-opacity, 1)) !important;
+}
+
+/* Add Loading for mermaid */
+
+.mermaid{
+    position: relative;
+}
+
+.mermaid:before{
+    padding-top: 20px;
+    font-size: 18px;
+    content: "Loading...";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(var(--n));
+    opacity: 0.8;
+    text-align: center;
+}
+
+.mermaid[data-processed]::before{
+    display: none;
 }

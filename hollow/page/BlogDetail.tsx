@@ -23,8 +23,8 @@ export default function BlogDetail(props: Content) {
                     t-break-words">
                     <h1 className="t-inline-flex t-items-start t-space-x-1"><span>{name}</span> {props.meta?.draft ?
                         <span className="t-text-xs">[Draft]</span> : null}</h1>
-                    <div className="t-leading-snug t-flex t-flex-wrap t-space-x-3 t-mb-6">
-                        <div><span>{dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span></div>
+                    <div className="t-leading-snug t-flex t-flex-wrap t-space-x-2 t-mb-6 t-items-center">
+                        <span>{dateFormat(new Date(props.meta?.date), "mm-dd / YY")}</span>
                         {
                             tags?.map(i => <Tag text={i}></Tag>)
                         }
