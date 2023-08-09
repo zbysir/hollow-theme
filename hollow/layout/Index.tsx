@@ -1,6 +1,9 @@
 import Header from "../particle/Header";
 import Footer, {Link} from "../particle/Footer";
 
+import hollow from "@bysir/hollow"
+import {defaultConfig} from "../initial_data";
+
 interface Props {
     title: string
     page_data?: any
@@ -10,10 +13,8 @@ interface Props {
     footer_links?: Link[]
     children?: any
     activeHeader?: string,
+    menus: any[],
 }
-
-import hollow from "@bysir/hollow"
-import {defaultConfig} from "../initial_data";
 
 let params = hollow.getConfig() || defaultConfig;
 
@@ -63,7 +64,7 @@ export default function Index(props: Props) {
     <body className="
     t-min-h-screen t-flex t-flex-col
     language-plain">
-    <Header name={props.logo} active={props.activeHeader}></Header>
+    <Header name={props.logo} active={props.activeHeader} menus={props.menus}></Header>
     <div className="flex-1">
         {
             props.children

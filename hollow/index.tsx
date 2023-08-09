@@ -11,90 +11,104 @@ const MarkDown = (args) => require("./page/Md").default(args);
 const Gallery = (args) => require("./page/Gallery").default();
 
 let contents = getContents('contents', {
-        filter: (a) => (a.meta?.export !== false)
-    }
+    filter: (a) => (a.meta?.export !== false)
+  }
 ).list;
 if (contents.length == 0) {
-    contents = defaultContents
+  contents = defaultContents
 }
 let params = hollow.getConfig() || defaultConfig;
 
 let global = {
-    title: params?.title,
-    logo: params?.logo,
-    stack: params?.stack,
-    footer_links: params?.footer_links,
+  title: params?.title,
+  logo: params?.logo,
+  stack: params?.stack,
+  footer_links: params?.footer_links,
+  menus: [
+    {href: '/', name: 'Home'},
+    {href: '/tags', name: 'Tags'},
+    {href: '/projects', name: 'Projects'},
+    {href: '/about', name: 'About'},
+    {href: '/links', name: 'Links'},
+    {href: '/gallery', name: 'Gallery'},
+  ],
 }
 
 let tags = contents.reduce((acc, i) => {
-    if (i.meta?.tags) {
-        return acc.concat(i.meta?.tags)
-    }
-    return acc;
+  if (i.meta?.tags) {
+    return acc.concat(i.meta?.tags)
+  }
+  return acc;
 }, []);
 
 // @ts-ignore
 tags = Array.from(new Set(tags));
 
 export default {
-    pages: [
-        {
-            path: '',
-            component: () => <Index {...global} activeHeader="Home">
-                <Home/>
-            </Index>,
-        },
-        ...contents.map(b => {
-            return {
-                path: articleRoute(b),
-                component: () =>
-                    <Index {...global} activeHeader="Home">
-                        <BlogDetail {...b} content={b.getContent()}></BlogDetail>
-                    </Index>
-            }
-        }),
-        {
-            path: 'tags',
-            component: () => <Index {...global} activeHeader="Tags">
-                <TagPage></TagPage>
-            </Index>
-        },
-        ...tags.map(tag => ({
-            path: 'tags/' + tag,
-            component: () => <Index {...global} activeHeader="Tags">
-                <TagPage selectedTag={tag}></TagPage>
-            </Index>
-        })),
-        {
-            path: 'links',
-            component: () => <Index {...global} activeHeader="Links">
-                <MarkDown filepath={params.links_page} md={params.links_page_md}></MarkDown>
-            </Index>
-        },
-        {
-            path: 'about',
-            component: () => <Index {...global} activeHeader="About">
-                <MarkDown filepath={params.about_page} md={params.about_page_md}></MarkDown>
-            </Index>
-        },
-        {
-            path: 'gallery',
-            component: () => <Index {...global} activeHeader="Gallery">
-                <Gallery></Gallery>
-            </Index>
-        },
-        {
-            path: 'article.json',
-            body: JSON.stringify(contents.map(i => ({
-                ...i,
-                content: i.getContent({pure: true})
-            })))
-        }
-    ],
+  pages: [
+    {
+      path: '',
+      component: () => <Index {...global} activeHeader="Home">
+        <Home/>
+      </Index>,
+    },
+    ...contents.map(b => {
+      return {
+        path: articleRoute(b),
+        component: () =>
+          <Index {...global} activeHeader="Home">
+            <BlogDetail {...b} content={b.getContent()}></BlogDetail>
+          </Index>
+      }
+    }),
+    {
+      path: 'tags',
+      component: () => <Index {...global} activeHeader="Tags">
+        <TagPage></TagPage>
+      </Index>
+    },
+    ...tags.map(tag => ({
+      path: 'tags/' + tag,
+      component: () => <Index {...global} activeHeader="Tags">
+        <TagPage selectedTag={tag}></TagPage>
+      </Index>
+    })),
+    {
+      path: 'projects',
+      component: () => <Index {...global} activeHeader="Projects">
+        <MarkDown filepath={params.projects_page} md={params.projects_page_md}></MarkDown>
+      </Index>
+    },
+    {
+      path: 'links',
+      component: () => <Index {...global} activeHeader="Links">
+        <MarkDown filepath={params.links_page} md={params.links_page_md}></MarkDown>
+      </Index>
+    },
+    {
+      path: 'about',
+      component: () => <Index {...global} activeHeader="About">
+        <MarkDown filepath={params.about_page} md={params.about_page_md}></MarkDown>
+      </Index>
+    },
+    {
+      path: 'gallery',
+      component: () => <Index {...global} activeHeader="Gallery">
+        <Gallery></Gallery>
+      </Index>
+    },
+    {
+      path: 'article.json',
+      body: JSON.stringify(contents.map(i => ({
+        ...i,
+        content: i.getContent({pure: true})
+      })))
+    }
+  ],
 
-    // 将 public 文件下所有内容 copy 到 dist 下
-    assets: ['statics'],
+  // 将 public 文件下所有内容 copy 到 dist 下
+  assets: ['statics'],
 
-    // 用于得到预览某一个篇文章的地址
-    articleRouter: articleRoute
+  // 用于得到预览某一个篇文章的地址
+  articleRouter: articleRoute
 }

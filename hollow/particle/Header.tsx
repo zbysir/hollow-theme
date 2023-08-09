@@ -1,14 +1,8 @@
 import Link from "../component/Link";
 import SearchBtn from "../component/SearchBtn";
 
-export default function Header(props: { name: string, active: string }) {
-    const menus = [
-        {href: '/', name: 'Home'},
-        {href: '/tags', name: 'Tags'},
-        {href: '/about', name: 'About'},
-        {href: '/links', name: 'Links'},
-        {href: '/gallery', name: 'Gallery'},
-    ].map(i => ({
+export default function Header(props: { name: string, active: string , menus: {href:string, name: string}[]}) {
+    const menus = props.menus.map(i => ({
             ...i,
             active: i.name === props.active
         }

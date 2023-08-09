@@ -30,6 +30,7 @@ theme_config:
       icon: GitHub
   links_page: 'pages/links.md'
   about_page: 'pages/about.md'
+  project_page: 'pages/project.mdx'
 ```
 
 ## Meta
